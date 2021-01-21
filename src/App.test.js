@@ -6,3 +6,7 @@ test('renders learn react link', () => {
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });
+
+describe('Aprendiendo las pruebas unitarias en React Js', {
+  it()
+})

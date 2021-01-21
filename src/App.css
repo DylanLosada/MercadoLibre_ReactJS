@@ -1,38 +1,24 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#logoTitle{
+  border-collapse: collapse;
+  -webkit-box-direction: normal;
+  font-family: "Proxima Nova",-apple-system,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 13px;
+  font-weight: 400;
+  color: #3483fa;
+  transition: color .2s ease-in-out;
+  box-sizing: border-box;
+  display: inline-block;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  text-indent: -999px;
+  position: absolute;
+  left: 10px;
+  background-image: url(https://http2.mlstatic.com/frontend-assets/ui-navigation/5.12.0/mercadolibre/logo__large_plus.png);
+  height: 34px;
+  top: 11px;
+  width: 134px;
+  outline: 0;
+  text-decoration: none;
 }
