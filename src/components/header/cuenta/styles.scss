@@ -1,0 +1,27 @@
+.header__navBar-usuario{
+    @include displayFlex(row, center, flex-end);
+    flex-basis: 27%;
+    // flex-grow: 1;
+}
+
+.header__navBar-usuario-ul{
+    display: inherit;
+    flex-basis: 95%;
+    justify-content: space-between;
+
+    li{
+        a{
+            display: block;
+            @include fontLigth($fontClara);
+            font-weight: 400;
+            color: black;
+        }
+    }
+}
+
+.header__navBar-usuario-ul-liCarriro{
+    display: contents;
+    img{
+        max-width: 6%;
+    }
+}

@@ -1,0 +1,80 @@
+@font-face{
+  font-family: 'Proxima Nova Ligth';
+  src: url('../assets/fonts/proximanova-light.woff2') format('TrueType');
+}
+
+@font-face{
+  font-family: 'Proxima Nova Regular';
+  src: url('../assets/fonts/proximanova-regular.woff2') format('TrueType');
+}
+
+@font-face{
+  font-family: 'Proxima Nova SemiBold';
+  src: url('../assets/fonts/proximanova-semibold.woff2') format('TrueType');
+}
+
+
+
+// Funciones
+@mixin displayFlex($direction, $align: stretch, $justify: center, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin fontLigth ($tipoLetra, $fontSize: 1.4rem){
+  font-family: $tipoLetra, arial;
+  font-size: $fontSize;
+  color:  $colorLetraMenu;
+}
+
+// Variables de proyecto.
+$colorPrincipal: #fff159;
+$colorBlanco: #ffffff;
+$colorLetraMenu: rgba(51,51,51,.6);
+
+$fontClara: "Proxima Nova Ligth";
+$fontSemiOscura: "Proxima Nova SemiBold";
+$fontRegular: "Proxima Nova Regular";
+
+*{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: content-box;
+}
+
+html{
+  font-size: 10px;
+  font-family: $fontClara;
+  box-sizing: content-box;
+}
+
+@import './_header';
+
+
+#logoTitle{
+  border-collapse: collapse;
+  -webkit-box-direction: normal;
+  font-family: $fontClara;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 13px;
+  font-weight: 400;
+  color: #3483fa;
+  transition: color .2s ease-in-out;
+  box-sizing: border-box;
+  display: inline-block;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  text-indent: -999px;
+  // position: absolute;
+  // left: 10px;
+  background-image: url(https://http2.mlstatic.com/frontend-assets/ui-navigation/5.12.0/mercadolibre/logo__large_plus.png);
+  height: 34px;
+  top: 11px;
+  width: 134px;
+  outline: 0;
+  text-decoration: none;
+}

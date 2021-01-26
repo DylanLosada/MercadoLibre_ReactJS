@@ -1,0 +1,373 @@
+@font-face {
+  font-family: 'Proxima Nova Ligth';
+  src: url("../assets/fonts/proximanova-light.woff2") format("TrueType");
+}
+
+@font-face {
+  font-family: 'Proxima Nova Regular';
+  src: url("../assets/fonts/proximanova-regular.woff2") format("TrueType");
+}
+
+@font-face {
+  font-family: 'Proxima Nova SemiBold';
+  src: url("../assets/fonts/proximanova-semibold.woff2") format("TrueType");
+}
+
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+html {
+  font-size: 10px;
+  font-family: "Proxima Nova Ligth";
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+#header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  background-color: #fff159;
+  min-height: 40vh;
+}
+
+.header__container {
+  width: 80%;
+  max-width: 122rem;
+  padding: 1rem 0rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header__enviosLink {
+  border-collapse: collapse;
+  -webkit-box-direction: normal;
+  font-family: "Proxima Nova",-apple-system,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 13px;
+  font-weight: 400;
+  color: #3483fa;
+  -webkit-transition: color .2s ease-in-out;
+  transition: color .2s ease-in-out;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
+  outline: 0;
+  text-decoration: none;
+}
+
+.header__enviosLink img {
+  border-collapse: collapse;
+  -webkit-box-direction: normal;
+  font-family: "Proxima Nova",-apple-system,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 13px;
+  font-weight: 400;
+  color: #3483fa;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: 340px;
+  max-height: 39px;
+}
+
+.header__navBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  margin-top: 1rem;
+}
+
+.header__navBar-capitalLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  overflow: hidden;
+  border-collapse: collapse;
+  -webkit-box-direction: normal;
+  font-family: "Proxima Nova Ligth";
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-transition: color .3s ease-out;
+  transition: color .3s ease-out;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 22px;
+  font-size: 0;
+  max-width: 170px;
+  font-weight: inherit;
+  color: #111;
+  height: 40px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  border-color: #eadd61;
+}
+
+.header__navBar-capitalLink i {
+  font-size: 3rem;
+}
+
+.header__navBar-capitalLink div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-left: 0.8rem;
+}
+
+.header__navBar-capitalLinksend {
+  border-collapse: collapse;
+  -webkit-box-direction: normal;
+  font-family: "Proxima Nova Ligth";
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
+  -webkit-font-smoothing: antialiased;
+  font-weight: inherit;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.header__navBar-capitalLink-capital {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border-collapse: collapse;
+  -webkit-box-direction: normal;
+  font-family: "Proxima Nova Ligth";
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
+  -webkit-font-smoothing: antialiased;
+  font-weight: inherit;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #333;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header__navBar-nav {
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
+}
+
+.header__navBar-nav-ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__navBar-nav-ul a {
+  font-size: 'Proxima Nova Ligth', arial;
+  font-size: 1.4rem;
+  color: rgba(51, 51, 51, 0.6);
+}
+
+.header__searcher {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  width: 40%;
+  overflow: hidden;
+}
+
+.header__searcher input {
+  -ms-flex-preferred-size: 85%;
+      flex-basis: 85%;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border: none;
+  padding: 0.7rem 1.5rem 0.9rem 1.5rem;
+  font-size: 1.6rem;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+.header__searcher a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-preferred-size: 8%;
+      flex-basis: 8%;
+  background-color: #ffffff;
+}
+
+.header__searcher-iButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 61%;
+  padding: 0rem 1rem;
+  font-size: 1.6rem;
+  border-left: 1px solid #ccc;
+}
+
+#logoTitle {
+  border-collapse: collapse;
+  -webkit-box-direction: normal;
+  font-family: "Proxima Nova Ligth";
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 13px;
+  font-weight: 400;
+  color: #3483fa;
+  -webkit-transition: color .2s ease-in-out;
+  transition: color .2s ease-in-out;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  text-indent: -999px;
+  background-image: url(https://http2.mlstatic.com/frontend-assets/ui-navigation/5.12.0/mercadolibre/logo__large_plus.png);
+  height: 34px;
+  top: 11px;
+  width: 134px;
+  outline: 0;
+  text-decoration: none;
+}
+/*# sourceMappingURL=App.css.map */

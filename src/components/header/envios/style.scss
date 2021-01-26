@@ -1,0 +1,33 @@
+// Img de envios.
+.header__enviosLink{
+    border-collapse: collapse;
+    -webkit-box-direction: normal;
+    font-family: "Proxima Nova",-apple-system,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 13px;
+    font-weight: 400;
+    color: #3483fa;
+    transition: color .2s ease-in-out;
+    box-sizing: border-box;
+    display: inline-block;
+    // position: absolute;
+    // right: 10px;
+    // top: 9px;
+    outline: 0;
+    text-decoration: none;
+
+    img{
+        border-collapse: collapse;
+        -webkit-box-direction: normal;
+        font-family: "Proxima Nova",-apple-system,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        font-size: 13px;
+        font-weight: 400;
+        color: #3483fa;
+        box-sizing: border-box;
+        max-width: 340px;
+        max-height: 39px;
+    }
+}

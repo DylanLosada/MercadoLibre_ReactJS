@@ -1,0 +1,25 @@
+@import '../components/header/navBar/style.scss'; // NavBar
+@import '../components/header/envios/style.scss'; // Envios
+@import '../components/header/logo/style.scss'; // Logo
+@import '../components/header/searcher/style.scss'; // Searcher
+
+// Header container
+#header{
+    @include displayFlex(row);
+    background-color: $colorPrincipal;
+    min-height: 1vh;
+    box-sizing: content-box;
+}
+
+.header__container{
+    width: 80%;
+    max-width: 122rem;
+    padding: 1rem 0rem;
+    justify-content: space-between;
+    box-sizing: content-box;
+}
+
+
+
+
+

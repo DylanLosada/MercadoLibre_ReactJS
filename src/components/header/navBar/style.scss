@@ -1,0 +1,90 @@
+@import '../cuenta/styles.scss'; // Usuarios Styles
+
+// NavBar.
+.header__navBar{
+    @include displayFlex(row, center, space-between);
+    flex-basis: 100%;
+    margin-top: 1rem;
+}
+
+// .header__navBar-capitalLink:before{
+//     content: '\EA47';
+//     font-size: 23px;
+//     position: absolute;
+//     top: 9px;
+//     left: 7px;
+//     -webkit-font-smoothing: antialiased;
+// }
+
+.header__navBar-capitalLink{
+    @include displayFlex(row, center, center);
+    flex-basis: 10%;
+    position: relative;
+    left: -1.4rem;
+    overflow: hidden;
+    border-collapse: collapse;
+    -webkit-box-direction: normal;
+    font-family: $fontClara;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    list-style: none;
+    outline: 0;
+    -webkit-font-smoothing: antialiased;
+    transition: color .3s ease-out;
+    cursor: pointer;
+    text-decoration: none;
+    // display: inline-block;
+    // position: absolute;
+    // line-height: 22px;
+    // font-size: 0;
+    max-width: 170px;
+    font-weight: inherit;
+    color: #111;
+    height: 40px;
+    padding: 0 8px;
+    border-radius: 4px;
+    // top: 52px;
+    // left: 1px;
+    border: 1px solid transparent;
+
+    img{
+        width: 22%;
+    }
+
+    div{
+        @include displayFlex(column, flex-start, center);
+    }
+
+    &:hover{
+        border-color: #eadd61;
+    }
+}
+
+.header__navBar-capitalLink-send{
+    @include fontLigth($fontRegular, 1.2rem);
+    position: relative;
+    top: 0.3rem;
+}
+
+.header__navBar-capitalLink-capital{
+    @include fontLigth($fontRegular);
+    font-weight: normal;
+    color: #111;
+    position: relative;
+    bottom: 0.2rem;
+}
+
+.header__navBar-nav{
+    @include displayFlex(row, center, flex-start);
+    flex-basis: 51.4%;
+}
+
+.header__navBar-nav-ul{
+    @include displayFlex(row, center, space-between);
+    flex-basis: 90%;
+
+
+    a{
+        @include fontLigth($fontClara);
+    }
+}
