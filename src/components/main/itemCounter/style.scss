@@ -1,0 +1,179 @@
+#buttonContainer{
+    min-height: 20vh;
+    min-width: 20vw;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttonContainer__form{
+    padding: 2.5rem 1.6rem;
+}
+
+.buttonContainer__form-botonCantidad{
+    @include fontLigth($fontRegular ,1.6rem);
+    position: relative;
+    color: rgba(0,0,0,.8);
+    width: 100%;
+}
+
+.buttonCantidadUnidades__spanDisponibles{
+    @include fontLigth($fontRegular, 1.3rem);
+    color: $colorLetraMenu;
+}
+
+.buttonContainer__ul-cantidad{
+    position: absolute;
+    z-index: 100;
+    top: 107%;
+    left: 0.8rem;
+    width: 65%;
+    border: 1px solid  #ccc;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    background-color: $colorBlanco;
+
+    & li{
+        @include fontLigth($fontRegular, 1.5rem);
+        @include displayFlex(row, center, center);
+        text-align: center;
+        color: rgba(0,0,0,.8);
+        padding: calc(3rem - 1.5rem) 2.4rem;
+        border-top: 1px solid #ccc;
+    }
+
+    li:nth-child(1){
+        border-top: none;
+    }
+}
+
+.buttonContainer__ul-cantidad-labelMasUni{
+    @include fontLigth($fontRegular, 1.5rem);
+    color: rgba(0,0,0,.8);
+    transform-origin: right right;
+    transition: transform 0.3s ease;
+}
+
+.buttonContainer__ul-cantidad-masCantidad{
+    @include displayFlex(column, flex-start, center);
+    width: 90%;
+    padding: 2.4rem 3.2rem 1.2rem;
+    position: absolute;
+    transform-origin: left center;
+    transform: scale(0, 1);
+    transition: height, transform 0.4s 0.1s ease;
+}
+
+.buttonContainer__ul-cantidad-masCantidad-divContainer{
+    width: 100%;
+    border-bottom: 3px solid #ccc;
+}
+
+.buttonContainer__ul-cantidad-masCantidad-divContainer-barra{
+    position: absolute;
+    bottom: 11%;
+    border-bottom: 0.3rem solid #ccc;
+    transform-origin: left center;
+    width: 60%;
+    transform: scale(0, 1);
+    transition: transform 0.3s;
+}
+
+.buttonContainer__ul-cantidad-masCantidad-divContainer:hover > div{
+    transform: scale(1);
+}
+
+.buttonContainer__ul-cantidad-masCantidad-divContainer-barraFocusOnInput{
+    border-bottom: 0.3rem solid $colorAzulBotones;
+    // position: relative;
+}
+
+.buttonContainer__ul-cantidad-masCantidad-input{
+    margin: 0.8rem 0px 0.4rem;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.buttonContainer__ul-cantidad-masCantidad-input:focus{
+    box-shadow: none;
+    border: none;
+    padding: 0%;
+    // font-size: 1.5rem;
+}
+
+.buttonContainer__ul-cantidad-masCantidad-buttonSubmit{
+    border-radius: 50%;
+    font-size: 0.9rem;
+    color: $colorBlanco;
+    background-color: $colorAzulBotones;
+    top: 56%;
+    right: 0%;
+    border: none;
+}
+
+.buttonContainer__ul-cantidad-masCantidad-buttonSubmit:hover{
+    background-color: $colorAzulBotones;
+    border: none;
+}
+
+.buttonContainer__form-buttonsCompra{
+    @include displayFlex(column, space-between);
+    margin-top: 2rem;
+    width: 100%;
+    min-height: calc( (2*4.8rem) + 1rem );
+}
+
+.buttonContainer__form-buttons{
+    width: 100%;
+    padding: 0.1rem 0.6rem;
+    height: 4.8rem;
+    border-radius: 0.6rem;
+    background-color: $colorAzulBotones;
+
+    span{
+        @include fontLigth($fontClara, 1.6rem);
+        font-weight: 600;
+        color: $colorBlanco;
+    }
+}
+
+.buttonContainer__form-buttons--buttonAgregar{
+    background-color: rgba(65,137,230,.15);
+    margin-top: 2rem;
+
+    span{
+        color: $colorAzulBotones;
+    }
+}
+
+// Clase para aparecer o desaparecer el cuadro de cantidad.
+.ulScaleInitial{
+    transform-origin: top center;
+    transform: scale(1, 0);
+}
+
+.ulAppear{
+    transform: scale(1);
+    // transition: transform 0.3s ease;
+}
+
+.estilosLi{
+    border-left: 0.3rem solid $colorAzulBotones;
+    color: $colorAzulBotones !important;
+}
+
+.liMasUnidades{
+    padding: 0px !important;
+    height: 9rem !important;
+}
+
+.masProductosTitleDisappear{
+    position: absolute;
+    transform: scale(0, 1);
+}
+
+.masProductosAppear{
+    position: relative;
+    transform: scale(1, 1);
+}

@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+    borderColor:  {
+      azulBotones: '#3483fa',
+    }
   },
   variants: {
     extend: {},

@@ -34,25 +34,29 @@
 $colorPrincipal: #fff159;
 $colorBlanco: #ffffff;
 $colorLetraMenu: rgba(51,51,51,.6);
+$colorAzulBotones: #3483fa;
 
 $fontClara: "Proxima Nova Ligth";
 $fontSemiOscura: "Proxima Nova SemiBold";
 $fontRegular: "Proxima Nova Regular";
 
-*{
-  margin: 0%;
-  padding: 0%;
-  box-sizing: content-box;
-}
+@import-normalize;
+@import "~bootstrap/scss/bootstrap";
+@import './_header';
+@import './_main';
+
+// Estilos usados para limpiar los user agent.
 
 html{
   font-size: 10px;
   font-family: $fontClara;
-  box-sizing: content-box;
 }
 
-@import './_header';
-@import './_main';
+input[type="number"]{
+  -webkit-appearance: textfield !important;
+  margin: 0;
+  -moz-appearance:textfield !important;
+}
 
 
 #logoTitle{
@@ -63,7 +67,7 @@ html{
   -webkit-tap-highlight-color: transparent;
   font-size: 13px;
   font-weight: 400;
-  color: #3483fa;
+  color: $colorAzulBotones;
   transition: color .2s ease-in-out;
   box-sizing: border-box;
   display: inline-block;

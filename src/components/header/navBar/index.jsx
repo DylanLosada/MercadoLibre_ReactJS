@@ -1,6 +1,18 @@
+import {useState} from 'react';
 import Usuario from '../cuenta';
 
 const NavBar = ({imgLocation, imgCarrito}) => {
+
+    const [categorias, setCategorias] = useState([]);
+
+    async function api () {
+        return await fetch('../../../dbListaCategorias/categorias.txt');
+    }
+
+    const responseApi = api();
+    responseApi
+    .then(data => data)
+    .then(data => console.log(data))
 
     return ( 
         <div className = 'header__navBar flex-1 flex-grow'>
@@ -15,7 +27,16 @@ const NavBar = ({imgLocation, imgCarrito}) => {
 
             <nav className = 'header__navBar-nav'>
                 <ul className = 'header__navBar-nav-ul'>
-                    <li><a href>Categorías</a></li>
+                    <li>
+                        Categorías
+                        {/* <nav>
+                            <ul>
+                                {
+                                    categorias.map( categoria => <li><a>{categoria}</a></li>)
+                                }
+                            </ul>
+                        </nav> */}
+                    </li>
                     <li><a>Ofertas</a></li>
                     <li><a>Historial</a></li>
                     <li><a>Supermercado</a></li>

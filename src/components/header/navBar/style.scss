@@ -18,7 +18,7 @@
 
 .header__navBar-capitalLink{
     @include displayFlex(row, center, center);
-    flex-basis: 10%;
+    flex-basis: 12%;
     position: relative;
     left: -1.4rem;
     overflow: hidden;
