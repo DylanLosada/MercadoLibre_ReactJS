@@ -5,6 +5,7 @@ const stylesClickOnInput = (e) => {
     const input = document.querySelector('#liMasUnidadesInput');
     const inputBarra = document.querySelector('#inputContainer__barra');
     const containerInput = document.querySelector('#inputContainer');
+
     if(e.target === input){
         inputBarra.className = 'transform scale-0';
         containerInput.classList.add('buttonContainer__ul-cantidad-masCantidad-divContainer-barraFocusOnInput');
@@ -23,8 +24,10 @@ const changeInitialValue = (initial) => (initial > 0) ? document.querySelector('
 
 const ItemCounter = ({stock, initial}) => {
 
+    // State de cantidad de producto
     const [cantidad, setCantidad] = useState(0);
 
+    // State perteneciente al input y su estado
     const [cantidaInput, setCantidadInput] = useState('');
 
     useEffect(() => {

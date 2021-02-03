@@ -1,7 +1,7 @@
-import Logo from './logo';
-import NavBar from './navBar';
-import Envios from './envios';
-import Searcher from './searcher';
+import Logo from '../components/header/logo';
+import NavBar from '../components/header/navBar';
+import Envios from '../components/header/envios';
+import Searcher from '../components/header/searcher';
 
 const imgLocation = './assets/iconos/ubicacion.svg';
 const imgLupa = './assets/iconos/lupa.svg';

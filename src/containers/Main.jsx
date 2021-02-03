@@ -1,6 +1,7 @@
-// import {useState} from 'react';
+import {useState} from 'react';
 // import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 // import { Swiper, SwiperSlide } from 'swiper/react';
+import { Form } from 'react-bootstrap';
 import ItemCounter from './itemCounter';
 
 // // Import Swiper styles
@@ -18,7 +19,6 @@ const Main = ({message}) => {
     
     // Uso el state.
     // const [images, setImages] = useState([]);
-
                                                             // Imágenes Lógica.
     // const apiUrl = 'https://pixabay.com/api/?key=20049617-3489021c09a3938e841590738&q=gamming&image_type=photo&min_width=1900&per_page=3';
 
