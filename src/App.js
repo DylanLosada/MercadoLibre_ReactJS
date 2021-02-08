@@ -1,13 +1,24 @@
+import {useState} from 'react'
+
 import Header from './containers/Header';
 import Main from './containers/Main';
 import './styles/App.scss';
 
 function App() {
+
+  // state para el carriro.
+  const [carrito, setCarrito] = useState([])
+
   return (
     <>
-      <Header />
+    {/* {carrito.length > 0 ? console.log(carrito) : null} */}
+      <Header 
+        setCarrito = {setCarrito}
+        carrito = {carrito}
+      />
       <Main 
-        message = 'Voy a ser el Main de la página de Mercado Libre!!!'
+        setCarrito = {setCarrito}
+        carrito = {carrito}
       />
     </>
   );

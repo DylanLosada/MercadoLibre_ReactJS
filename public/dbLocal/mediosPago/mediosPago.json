@@ -1,0 +1,28 @@
+{
+    "results" : [
+        {
+            "id":1,
+            "url": "./dbLocal/mediosPago/credito.svg",
+            "mensaje": "Tarjeta de crédito",
+            "mas": "Ver promociones bancarias"
+        },
+        {
+            "id":2,
+            "url": "./dbLocal/mediosPago/debito.svg",
+            "mensaje": "Tarjeta de débito",
+            "mas": "Ver más"
+        },
+        {
+            "id":3,
+            "url": "./dbLocal/mediosPago/efectivo.svg",
+            "mensaje": "Efectivo",
+            "mas": "Ver más"
+        },
+        {
+            "id":4,
+            "url": "./dbLocal/mediosPago/mas.svg",
+            "mensaje": "Más medios de pago",
+            "mas": "Ver todos"
+        }
+    ]
+}

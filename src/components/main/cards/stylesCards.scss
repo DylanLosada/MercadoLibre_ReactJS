@@ -1,0 +1,135 @@
+// Titulo y link de la Card
+
+
+// Slider
+#sliderOfertas{
+    @extend %paginationCard;
+    position: static;
+}
+
+.sliderOfertas__slider{
+    height: 31.4rem;
+
+    &:hover{
+        height: 34rem;
+    }
+}
+
+.sliderOfertas__slider-cards{
+    width: 22.4rem;
+    height: 100%;
+}
+
+.sliderOfertas__slider-cards-like{
+    position: absolute;
+    z-index: 20;
+    width: 36px;
+    height: 36px;
+    top: 16px;
+    right: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: hsla(0,0%,100%,.7);
+    border-radius: 50%;
+    padding: 0;
+    transform-origin: center;
+    transform: scale(0);
+
+    &-heart{
+        fill: #3483fa;
+        width: 18px;
+        top: 11px;
+        position: absolute;
+        left: 9px;
+    }
+}
+
+.sliderOfertas__slider-cards-like--liked{
+    display: none;
+}
+
+.sliderOfertas__slider-cards-img{
+    display: block;
+    position: relative;
+    height: 22.4rem;
+    object-fit: scale-down;
+    border-bottom: 1px solid #cccccc;
+}
+
+.sliderOfertas__slider-cards-body{
+    @include displayFlex(column, flex-start, space-between);
+    padding: 2.4rem 2.4rem 1.4rem;
+
+    &-priceBefore{
+        @include fontLigth($fontClara, $fontAntes);
+        color: $colorFontPrecioAnterior;
+        text-decoration: line-through;
+        transform: scale(0,0);
+        position: absolute;
+        top: 23.8rem;
+    }
+
+    &-cuotas{
+        @include fontLigth($fontClara);
+        margin-top: 0.1rem;
+        color: $colorFontTituloFav;
+    }
+
+    &-priceAfter{
+        @include fontLigth($fontClara, $fontDespues);
+        color: black;
+
+        &-off{
+            font-size: 1.4rem;
+            vertical-align: 3px;
+            padding-left: 1rem;
+            color: #39b54a;
+        }
+    }
+
+    &-name{
+        @include fontLigth($fontClara, 1.4rem);
+        margin: 0px;
+        margin-top: 0.6rem;
+        color: $colorFontNombreCard;
+        transform: scale(0,0);
+    }
+}
+
+.sliderOfertas__slider-cards-body-name{
+    text-overflow: clip;
+    word-wrap: break-word;
+}
+
+.sliderOfertas__slider-cards-body-shipping{
+    width: 36px;
+    height: 36px;
+    top: 20.5rem;
+    right: 3%;
+    border: 1px solid rgba(51,51,51,.1);
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+
+    &-logo{
+        fill: #39b54a;
+        width: 20px;
+        left: 8px;
+        top: 9px;
+        position: absolute;
+    }
+}
+
+.linkCard:hover .sliderOfertas__slider-cards-body-name,
+.linkCard:hover .sliderOfertas__slider-cards-body-priceBefore,
+.linkCard:hover .sliderOfertas__slider-cards-like{
+    transform: scale(1);
+}
+
+.linkCard:hover .sliderOfertas__slider-cards-like{
+    background-color: hsla(0,0%,100%,.7);
+    border-color: unset;
+    &-heart{
+        fill: #1259c3;
+    }
+}

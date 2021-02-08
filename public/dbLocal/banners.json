@@ -1,0 +1,24 @@
+{
+    "results" :[ 
+        {
+            "id" : 1,
+            "url" : "./dbLocal/banner_1.jpg"
+        },
+        {
+            "id" : 2,
+            "url" : "./dbLocal/banner_2.jpg"
+        },
+        {
+            "id" : 3,
+            "url" : "./dbLocal/banner_3.jpg"
+        },
+        {
+            "id" : 4,
+            "url" : "./dbLocal/banner_4.jpg"
+        },
+        {
+            "id" : 5,
+            "url" : "./dbLocal/banner_5.jpg"
+        }
+    ]
+}

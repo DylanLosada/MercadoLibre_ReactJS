@@ -31,25 +31,121 @@
 }
 
 // Variables de proyecto.
+$fondoMl: linear-gradient(0,#e6e6e6,hsla(0,0%,100%,0) 100%);
+
 $colorPrincipal: #fff159;
 $colorBlanco: #ffffff;
 $colorLetraMenu: rgba(51,51,51,.6);
 $colorAzulBotones: #3483fa;
+$coloBordesGris: #eee;
 
 $fontClara: "Proxima Nova Ligth";
 $fontSemiOscura: "Proxima Nova SemiBold";
 $fontRegular: "Proxima Nova Regular";
 
-@import-normalize;
-@import "~bootstrap/scss/bootstrap";
-@import './_header';
-@import './_main';
+// Tamaño letra Cards
+$fontDespues:  2.4rem;
+$fontAntes:  1.4rem;
+$fontNombre:  1.4rem;
+
+// Color font cards
+$colorFontNombreCard: #666;
+$colorFontPrecioAnterior: #999;
+$colorLinkCardHover: #1259c3;
+$colorFontTituloFav: #333;
+
+$boxShadowButtonSlider: 0 2px 4px 0 rgba(0,0,0,.19);
+$boxShadowButtonSliderHover: 0 7px 16px 0 rgba(0,0,0,.2),0 1px 3px 0 rgba(0,0,0,.1);;
+
+//PlaceHolder para tamano de secciones
+%widthSection{
+  width: 100%;
+} 
+
+// Placeholder para los botones del slider
+%sliderButton{
+  opacity: 0;
+  cursor: pointer;
+  border-top-right-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  background-color: $colorBlanco;
+  box-shadow: $boxShadowButtonSlider;
+  width: 4rem;
+  height: 8rem;
+  padding: 0px 0.8rem;
+  transition: opacity, box-shadow 0.4s; 
+}
+
+%cardButton{
+  @extend %sliderButton;
+  text-align: center;
+  width: 6.4rem;
+  height: 6.4rem;
+  border-radius: 50%;
+}
+
+%hoverLinks{
+  text-decoration: none;
+  color: $colorLinkCardHover;
+}
+
+
+%paginationCard{
+  overflow: visible;
+
+  &:hover .swiper-button-next, &:hover .swiper-button-prev{
+      opacity: 1;
+  }
+
+  // Botones next y prev del slider
+  & .swiper-button-next{
+      right: -3.4rem;
+  }
+
+  & .swiper-button-prev{  
+      left: -3.4rem;
+  }
+
+  & .swiper-button-next,
+  & .swiper-button-prev
+  {
+      @extend %cardButton;
+
+      &:hover{
+          @extend %sliderButtonHover;
+      }
+
+      &::after{
+          font-size: 1.6rem;
+          font-weight: bold;
+      }
+  }
+
+  // Position bullet del slider
+  & .swiper-pagination-bullet{
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 50%;
+  }
+
+  & .swiper-pagination-bullet-active{
+      width: 0.9rem;
+      height: 0.9rem;
+      background-color: $colorBlanco;
+      border: 1px solid rgba(0,0,0,.2);
+  }
+}
+
+%sliderButtonHover{
+  box-shadow: $boxShadowButtonSliderHover;
+}
 
 // Estilos usados para limpiar los user agent.
 
-html{
+:root{
   font-size: 10px;
   font-family: $fontClara;
+  background-image: $fondoMl;
 }
 
 input[type="number"]{
@@ -58,6 +154,90 @@ input[type="number"]{
   -moz-appearance:textfield !important;
 }
 
+// Estilos para el tamaño de cada section
+.section{
+  @extend %widthSection;
+}
+
+.section__container{
+  width: 80%;
+  height: 34rem;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+.section__title{
+  @extend .section__container;
+  height: auto;
+  margin-bottom: 2.2rem;
+  
+  &-container{
+    @include displayFlex(row,center,space-between);
+    display: inline-flex;
+    min-width: 10%;
+  }
+
+  &-container-h1{
+    @include fontLigth($fontClara, 2.6rem);
+    color: $colorFontNombreCard;
+    font-weight: 300;
+    margin: 0 0 0 8px;
+  }
+
+  &-container-linkMas{
+    @include fontLigth($fontClara, 1.6rem);
+    color: $colorAzulBotones;
+    margin-left: 1.6rem;
+    margin-bottom: -0.5rem;
+  }
+
+  &-container-linkMas:hover{
+    @extend %hoverLinks;
+  }
+}
+
+// Estilos para los botones y dropdown de Boots.
+
+%dropdown{
+  @include fontLigth($fontClara);
+  padding: 0%;
+  border-radius: 0%;
+  color: inherit !important;
+  background-color: inherit !important;
+  border: none !important;
+  border-color: transparent !important;
+  outline: none !important;
+  line-height: normal;
+
+  &:active,
+  &:focus,
+  &:hover{
+    color: inherit !important;
+    background-color: inherit !important;
+    border: none !important;
+    border-color: transparent !important;
+    outline: none !important;
+  }
+}
+
+@import-normalize;
+@import "~bootstrap/scss/bootstrap";
+@import './_header';
+@import './_main';
+
+// Modifico clases de Boots.
+.dropdown-menu{
+  background: transparent;
+  border: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle{
+  @extend %dropdown;
+}
+
+
+// Estilos para el Header.
 
 #logoTitle{
   border-collapse: collapse;

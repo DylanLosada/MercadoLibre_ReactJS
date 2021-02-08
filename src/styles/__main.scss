@@ -1,1 +1,56 @@
+@import '../components/main/mediosPago/stylesMediosPago.scss'; // Estilos banner con medios de pago.
+@import '../components/main/cards/stylesCards.scss'; // Slider de ofertas
 @import '../containers/itemCounter/style.scss'; // Botón de sumar productos
+
+#slider{
+    min-height: auto;
+
+    &:hover .swiper-button-next, &:hover .swiper-button-prev{
+        opacity: 1;
+    }
+
+    // Botones next y prev del slider
+    & .swiper-button-next{
+        right: 0px;
+    }
+
+    & .swiper-button-prev{
+        left: 0px;
+    }
+
+    & .swiper-button-next,
+    & .swiper-button-prev
+    {
+        width: 4rem;
+        @extend %sliderButton;
+
+        &:hover{
+            @extend %sliderButtonHover;
+        }
+
+        &::after{
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    }
+
+    & .swiper-button-next{
+        border-radius: unset;
+        border-top-left-radius: 0.4rem;
+        border-bottom-left-radius: 0.4rem;
+    }
+
+    // Position bullet del slider
+    & .swiper-pagination-bullet{
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+    }
+
+    & .swiper-pagination-bullet-active{
+        width: 0.9rem;
+        height: 0.9rem;
+        background-color: $colorBlanco;
+        border: 1px solid rgba(0,0,0,.2);
+    }
+}

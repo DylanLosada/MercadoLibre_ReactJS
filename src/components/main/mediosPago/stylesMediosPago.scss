@@ -1,0 +1,55 @@
+.section__container--mediosPago{
+    @include displayFlex(row, center, space-between);
+    position: relative;
+    margin-top: 3rem;
+    padding: 2rem;
+    height: 9rem;
+    background-color: $colorBlanco;
+    border-radius: 0.4rem;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+
+.mediosPago__credito{
+    display: inherit;
+    cursor: pointer;
+
+    &-desc{
+        display: inherit;
+        flex-direction: column;
+        justify-content: center;
+
+        &-title{
+            @include fontLigth($fontClara, 1.8rem);
+            color: black;
+            font-weight: 800;
+        }
+
+        &-modal{
+           @include fontLigth($fontClara);
+           color: $colorAzulBotones;
+
+           &:hover{
+                @extend %hoverLinks;
+           }
+        }
+    }
+}
+
+.mediosPago__credito-imgContainer{
+    margin-right: 16px;
+    font-size: 1.8rem;
+    width: 48px;
+    height: 54px;
+
+    &-img{
+
+    }
+}
+
+.borderPagos{
+    position: absolute;
+    right: 22%;
+    top: 0;
+    border-left: 1px solid #eee;
+    height: 100%;
+}
