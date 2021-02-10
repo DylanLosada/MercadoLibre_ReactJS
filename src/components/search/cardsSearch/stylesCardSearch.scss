@@ -1,0 +1,74 @@
+.cardSearch{
+    
+    width: 100%;
+    padding: 2rem 5rem 2rem 0;
+    border-bottom: 1px solid #eee;
+
+    &:nth-last-child(){
+        border: none;
+    }
+
+    &__cards{
+        @include displayFlex(row);
+        width: 100%;
+
+        &-containerImg{
+            flex-shrink: 0;
+            width: 16rem;
+            height: 16rem;
+            margin: 0;
+            overflow: hidden;
+            margin-right: 2.4rem;
+            margin-left: 2.4rem;
+            flex-basis: 16rem;
+            border-radius: 0.4rem;
+
+            &-img{
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                font-size: 1px;
+            }
+        }
+    
+        &-body{
+            @include fontLigth($fontClara);
+            color: $colorFontTituloFav;
+            font-weight: 300;
+            display: inherit;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-grow: 1;
+
+            &-name{
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                width: 90%;
+                text-overflow: clip;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            &-price{
+                font-size: 2.4rem;
+                font-weight: 400;
+                margin-right: 0.8rem;
+            }
+
+            &-state{
+                color: #666;    
+                font-size: 1.4rem;
+                font-weight: 500;
+                margin-top: 2rem;
+
+                &::first-letter{
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+    
+    
+}

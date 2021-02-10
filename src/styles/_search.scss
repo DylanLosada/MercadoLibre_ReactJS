@@ -1,0 +1,20 @@
+@import '../components/search/cardsSearch/stylesCardSearch.scss'; // Cards para la busqueda.
+
+.search{
+
+    @include displayFlex(row, center, center);
+    padding: 2rem 5rem;
+    height: auto;
+    min-height: 100vh;
+
+    &__products{
+        flex-basis: 75%;
+        min-height: 90vh;
+        background-color: $colorBlanco;
+        border-radius: 0.5rem;
+    }
+
+    &__aside{
+        flex-basis: 24%;
+    }
+}

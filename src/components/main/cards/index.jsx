@@ -86,11 +86,11 @@ const Cards = ({productos, title, verMas, setCarrito, carrito, oferta = false}) 
                                                     25t-.4 1.3.5 1.2 1.4.5z"></path>
                                                 </svg>
                                             </div>
-                                            {(oferta) ? <Card.Subtitle className = 'sliderOfertas__slider-cards-body-priceBefore'>$ { (producto.price * 1.5).toFixed(2) }</Card.Subtitle> : null}
+                                            {(oferta) ? <Card.Subtitle className = 'sliderOfertas__slider-cards-body-priceBefore'>$ { producto.original_price }</Card.Subtitle> : null}
                                             <Card.Text className = 'sliderOfertas__slider-cards-body-priceAfter'>
                                                 <span>$</span>
                                                 <span>{(producto.price).toFixed(0)}</span>
-                                                {oferta ? <span className = 'sliderOfertas__slider-cards-body-priceAfter-off'>50% OFF</span> : null}
+                                                {oferta ? <span className = 'sliderOfertas__slider-cards-body-priceAfter-off'>{(100 - ( Number(producto.price) / Number(producto.original_price)) * 100).toFixed(0)}% OFF</span> : null}
                                             </Card.Text>
                                             {(oferta) ? <Card.Subtitle className = 'sliderOfertas__slider-cards-body-cuotas'>{ `${producto.installments.quantity} X $ ${producto.installments.amount}`}  sin interés</Card.Subtitle> : null}
                                             <Card.Title className = 'sliderOfertas__slider-cards-body-name'>{cutTitle(producto.title)}</Card.Title>

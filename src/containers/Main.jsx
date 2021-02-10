@@ -24,7 +24,7 @@ const apiMlaUrl = 'https://api.mercadolibre.com/sites/MLA/search?q=Sony&limit=25
 const apiMlVisto = 'https://api.mercadolibre.com/sites/MLA/search?category=MLA1000';
 const apiBanner = 'https://api.mercadolibre.com//sites/MLA/search?category=MLA1071';
 const apiDb = './dbLocal/banners.json';
-// const apiDeals = 'https://api.mercadolibre.com/users/202593498/deals/search'
+const apiDiscount= 'https://api.mercadolibre.com/sites/MLA/search?q=ofertas&discount=5-100'
 const apiDeals = 'https://api.mercadolibre.com/sites/MLA/search?q=ofertas'
 
 
@@ -60,7 +60,7 @@ const Main = ({setCarrito, carrito}) => {
                         .catch(error => console.log(error));
 
         // Ofertas
-        getDataFromApi(apiMlaUrl)
+        getDataFromApi(apiDiscount)
                         .then(data => data.json())
                         .then(data => setOfertas(data.results));
         
@@ -75,7 +75,12 @@ const Main = ({setCarrito, carrito}) => {
                         .then(data => setBanner(data.results))
                         .catch(error => console.log(error));
 
-        getDataFromApi(apiDeals)
+        // getDataFromApi(apiDiscount)
+        //                 .then(data => data.json())
+        //                 .then(data => console.log(data))
+        //                 .catch(error => console.log(error));
+
+        getDataFromApi(apiDiscount)
                         .then(data => data.json())
                         .then(data => console.log(data))
                         .catch(error => console.log(error));

@@ -1,0 +1,7 @@
+C:\Users\dylan losada\OneDrive\Documentos\ArchivosHTML\proyectoKupa__react\kupa\src\dbLocal\banner_1.jpg,
+C:\Users\dylan losada\OneDrive\Documentos\ArchivosHTML\proyectoKupa__react\kupa\src\dbLocal\banner_2.jpg,
+C:\Users\dylan losada\OneDrive\Documentos\ArchivosHTML\proyectoKupa__react\kupa\src\dbLocal\banner_3.jpg,
+C:\Users\dylan losada\OneDrive\Documentos\ArchivosHTML\proyectoKupa__react\kupa\src\dbLocal\banner_4.jpg,
+C:\Users\dylan losada\OneDrive\Documentos\ArchivosHTML\proyectoKupa__react\kupa\src\dbLocal\banner_5.jpg,
+C:\Users\dylan losada\OneDrive\Documentos\ArchivosHTML\proyectoKupa__react\kupa\src\dbLocal\banner_6.jpg,
+C:\Users\dylan losada\OneDrive\Documentos\ArchivosHTML\proyectoKupa__react\kupa\src\dbLocal\banner_7.jpg

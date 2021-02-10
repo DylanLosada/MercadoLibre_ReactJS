@@ -14,7 +14,7 @@ const imgCarrito = './assets/iconos/carrito.svg';
 
 const apiMlCategorias = 'https://api.mercadolibre.com/sites/MLA/categories?limit=10'
 
-const Header = ({setCarrito, carrito}) => {
+const Header = ({setCarrito, carrito, setItemSearch}) => {
 
     // Uso el state para generar categorias y subCategorias.
     const [categorias, setCategorias] = useState([]);
@@ -36,6 +36,7 @@ const Header = ({setCarrito, carrito}) => {
                 <Logo /> 
                 <Searcher
                     imgLupa = {imgLupa}
+                    setItemSearch = {setItemSearch}
                 />
                 <Envios />
                 <NavBar 
