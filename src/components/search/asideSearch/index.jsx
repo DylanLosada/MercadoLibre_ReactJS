@@ -27,8 +27,8 @@ const AsideSearch = ({searchParam, dataSearch, setFilters, filters}) => {
     const createFilterInfoSeller = (dataSearch) => {
         const arrayValues = [];
         dataSearch[0].results.forEach( filter => {
-            if (!arrayValues.includes(filter.seller_address.city.name)) {
-                arrayValues.push(filter.seller_address.city.name)
+            if(!arrayValues.find(ciudad => ciudad[0] === filter.seller.id ) && !arrayValues.find(ciudad => ciudad[1] === filter.seller.name )){
+                arrayValues.push([filter.seller.id , filter.seller_address.city.name])
             }
         })
         return arrayValues;
@@ -53,7 +53,7 @@ const AsideSearch = ({searchParam, dataSearch, setFilters, filters}) => {
         dataSearch[0].results.forEach( filter => {
             try{
                 if (filter.official_store_id) {
-                    arrayOficialStoreName.push(filter.eshop.name)
+                    arrayOficialStoreName.push([filter.seller.id ,filter.eshop.name])
                 }
             }catch{
                 return;
@@ -126,11 +126,21 @@ const AsideSearch = ({searchParam, dataSearch, setFilters, filters}) => {
                  : null}
 
                     <div className= 'search__aside-filters'>
-
-                        {/* <dl className= 'search__aside-filters-title'>
-                            <dt className= 'search__aside-filters-title-name'>Tiendas Oficiales</dt>
-                                <dd>{createFilterOficialSeller(dataSearch)}</dd>
-                        </dl> */}
+                        {createFilterOficialSeller(dataSearch).length > 0 ?
+                            <dl className= 'search__aside-filters-title'>
+                                <dt className= 'search__aside-filters-title-name'>Tiendas Oficiales</dt>
+                                {createFilterOficialSeller(dataSearch).map(modelo => 
+                                    <dd>
+                                        <Link 
+                                            to = {`${url}/${modelo[0]}`}
+                                            onClick = {() => updateSetFilters('seller_id')}
+                                        >
+                                            {modelo[1]}
+                                        </Link>
+                                    </dd>   
+                                )}
+                            </dl>
+                        : null }
 
                         <dl className= 'search__aside-filters-title'>
                             <dt className= 'search__aside-filters-title-name'>Modelo</dt>
@@ -178,7 +188,14 @@ const AsideSearch = ({searchParam, dataSearch, setFilters, filters}) => {
                         <dl className= 'search__aside-filters-title'>
                             <dt className= 'search__aside-filters-title-name'>Ubicación</dt>  
                             {createFilterInfoSeller(dataSearch).map( (modelo, index) => 
-                                <dd>{modelo}</dd>    
+                                 <dd>
+                                 <Link 
+                                     to = {`${url}/${modelo[0]}`}
+                                     onClick = {() => updateSetFilters('seller_id')}
+                                 >
+                                     {modelo[1]}
+                                 </Link>
+                             </dd>    
                             )}
                         </dl>
 

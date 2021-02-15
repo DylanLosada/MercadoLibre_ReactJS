@@ -1,6 +1,6 @@
 /* eslint-disable default-case */
 import {useState, useEffect} from 'react'
-import {Link, useParams, useLocation} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 
 import AsideSearch from '../../components/search/asideSearch'
 import CardSearch from '../../components/search/cardsSearch'
@@ -88,9 +88,10 @@ const Search = () => {
                         />
                     </aside>
                     <section className = 'search__products'>
-                        <CardSearch 
-                            search = {search}
-                        />
+                       {search.length > 0 ? 
+                            <CardSearch 
+                                    search = {search}
+                            /> : <h2>No tenemos este producto en este momento</h2>} 
                     </section>
                 </div>
             </section>
