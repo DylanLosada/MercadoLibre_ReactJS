@@ -1,4 +1,4 @@
-import {Card, Button} from 'react-bootstrap';
+import {Card, Button, Badge} from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 
 const CardSearch = ({search, oferta = false}) => (
@@ -20,7 +20,7 @@ const CardSearch = ({search, oferta = false}) => (
                         <svg class="sliderOfertas__slider-cards-like-heart" viewBox="0 0 36 32">
                             <path d="M0 10.4q0-1.7.8-4t2.6-3.8Q5 1.2 6.7.6t3.6-.6q2 0 3.8.8t4 2.7q2-2 4-2.7t4-.8 3.4.6 3.3 2Q34.3 4 35 6.3t1 4-.6 4-3 4L18 32 3.4 18.2Q1.8 16.7 1 14.7t-1-4.3z"></path>
                         </svg>
-                    </Button> */console.log(search)}
+                    </Button> */}
 
                     <Link to = {`/producto/${item.id}`} className = 'cardSearch__cards-containerImg'>
                         <Card.Img
@@ -33,14 +33,20 @@ const CardSearch = ({search, oferta = false}) => (
                         className = 'cardSearch__cards-body'
                     >
                         <NavLink to = {`/producto/${item.id}`} className = 'cardSearch__cards-body-name'>{item.title}</NavLink>
-                        {(oferta) ? <Card.Subtitle className = 'sliderOfertas__cards-body-priceBefore'>$ { (item.price * 1.5).toFixed(2) }</Card.Subtitle> : null}
+                        {(item.original_price) ? <Card.Subtitle className = 'cardSearch__cards-body-priceBefore'>$ { item.original_price } </Card.Subtitle> : null}
                         <Card.Text className = 'cardSearch__cards-body-price'>
                             <span>$</span>
                             <span>{(item.price).toFixed(0)}</span>
-                            {oferta ? <span className = 'cardSearch_cards-body-priceAfter-off'>50% OFF</span> : null}
+                            { item.original_price ? <span className = 'cardSearch__cards-body-price-off'>{ (100 - (item.price / item.original_price)* 100).toFixed(0) }% OFF</span> : null}
                         </Card.Text>
-                        <Card.Subtitle className = 'cardSearch__cards-body-state'>{ item.condition }</Card.Subtitle>
-                       
+                        
+                        {/* { item.installments ? item.installments.quantity <= 9 && item.installments.rate === 0 ? <div> <p className = 'cardSearch__cards-body-info-shippingFree'>Hasta {item.installments.quantity} cuotas sin interés</p> </div> : null  : null} */}
+                        
+                        <div className = 'cardSearch__cards-body-info'>
+                            <Card.Subtitle className = 'cardSearch__cards-body-info-state'>{ item.condition }</Card.Subtitle>
+                            {(item.shipping.logistic_type === 'fulfillment') ? <Badge className = 'cardSearch__cards-body-info-shippingFull'>Llega gratis mañana</Badge> : null}
+                            {(item.shipping.free_shipping === false && !item.shipping.logistic_type === 'fulfillment') ? <p className = 'cardSearch__cards-body-info-shippingFree'>Envío gratis</p> : null}
+                        </div>
                     </Card.Body>
                 </div>
             </Card>    

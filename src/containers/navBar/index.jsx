@@ -1,7 +1,10 @@
 import getDataFromApi from '../../modules/fetch'
 import {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom'
 import {Dropdown, DropdownButton} from 'react-bootstrap'
 import Usuario from '../../components/header/cuenta';
+
+const apiCategorias = 'https://api.mercadolibre.com/sites/MLA/categories'
 
 const NavBar = ({imgLocation, imgCarrito, carrito, setCarrito, categorias}) => {
 
@@ -10,25 +13,25 @@ const NavBar = ({imgLocation, imgCarrito, carrito, setCarrito, categorias}) => {
         setCarrito(newCarrito);
     }
 
-    const subConsulta = (consultas) => {
-        let array = []
-        consultas.forEach( consulta => {
+    // const probando = (idCategories) => {
+    //     let arraySubCategories = [];
+    //     idCategories.map(id => {
+    //         const apiPrueba = `https://api.mercadolibre.com/categories/${id}`;
+    //          getDataFromApi(apiPrueba)
+    //             .then(data => data.json())
+    //             .then(data => data)
+    //     })
+    // }
 
-            const apiSubCategoria = `https://api.mercadolibre.com/categories/${consulta.id}`
-            getDataFromApi(apiSubCategoria)
-                    .then(data => data.json())
-                    .then(data => array.push(data.children_categories))
-                    .catch(error => console.log(error));
-        })
 
-        console.log(array)
-        return array;
-    }
-
-    const [subCategoria, setSubCategoria] = useState([])
+    // const [categoria, setCategoria] = useState([])
 
     useEffect(() => { 
-        setSubCategoria(subConsulta(categorias))
+        getDataFromApi(apiCategorias)
+            .then(data => data.json())
+            .then(data => console.log(data.splice(0, 15)))
+            // .then(data => probando(data[0].id))
+
     }, [])
 
     return ( 
@@ -44,33 +47,20 @@ const NavBar = ({imgLocation, imgCarrito, carrito, setCarrito, categorias}) => {
 
             <nav className = 'header__navBar-nav'>
                 <ul className = 'header__navBar-nav-ul'>
-                    <li>
-                        <DropdownButton className = ''  title="Categorías">
-                            <div id="categorias">
-                                <ul className = ''>
-                                    {categorias.length > 0 ? categorias.map( categoria => 
+                    <li className = 'header__navBar-nav-ul-list'>
+                            Categorías
+                            {categorias.length > 0 ?  
+                                <nav id="categorias" className = 'header__navBar-nav-ul-list-categories'>
+                                    <ul className = 'header__navBar-nav-ul-list-categories-list'>
+                                     {categorias.map( categoria =>
                                         <li
                                             key = {categoria.id}
                                         >
-                                            <Dropdown.Item 
-                                                className = ''
-                                                href="#/action-1"
-                                            >
-                                                {categoria.name}
-                                                
-                                                    <DropdownButton>
-                                                        {subCategoria.map( child => 
-                                                                <Dropdown.Item>
-                                                                    {child.map( name => console.log(name.name))}
-                                                                </Dropdown.Item>    
-                                                            )}
-                                                    </DropdownButton>
-                                                
-                                            </Dropdown.Item>
-                                        </li>) :null }
-                                </ul>
-                            </div>
-                        </DropdownButton>
+                                            <Link to = {`/search-categorie/${categoria.id}`} className = 'header__navBar-nav-ul-list-categories-list-categorie'>{categoria.name}</Link>
+                                        </li>)}
+                                    </ul>
+                                </nav>
+                            : null }
                     </li>
                     <li><a>Ofertas</a></li>
                     <li><a>Historial</a></li>

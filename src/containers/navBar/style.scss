@@ -80,8 +80,69 @@
 }
 
 .header__navBar-nav-ul{
+    @include fontLigth($fontClara);
     @include displayFlex(row, center, space-between);
-    flex-basis: 90%;
+    font-weight: 600;
+    width: 90%;
+
+    &-list{
+        position: relative;
+
+        &:hover &-categories{
+            transform: scale(1);
+        }
+
+        &::after{
+            @extend %arrowDropDown;
+        }
+
+        &-categories{
+            position: absolute;
+            z-index: 30;
+            top: 159%;
+            right: -4%;
+            background-color: $colorFontTituloFav;
+            padding: 2.2rem 0;
+            max-width: 98rem;
+            border-radius: 0.4rem;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,.3);
+            transform: scale(0);
+
+            &::before{
+                content: "";
+                left: 21.2rem;
+                width: 0;
+                height: 0;
+                border: 0 solid transparent;
+                border-right-width: 14px;
+                border-left-width: 14px;
+                border-bottom: 14px solid #333;
+                top: -8px;
+                position: absolute;
+                display: block;
+            }
+
+            &-list{
+                line-height: 2.2rem;
+                &-categorie{
+                    text-align: left;
+                    color: #fff !important;
+                    display: block;
+                    padding: 0 3.6rem;
+                    line-height: 2.59;
+                    max-width: 26rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    -o-text-overflow: ellipsis;
+                    text-overflow: ellipsis; 
+
+                    &:hover{
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
 
 
     a{

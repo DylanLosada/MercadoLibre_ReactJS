@@ -221,6 +221,26 @@ input[type="number"]{
   }
 }
 
+// Estilos para los dropdowns 
+%arrowDropDown{
+  border-style: solid;
+  border-width: 0 1.5px 1.5px 0;
+  content: '';
+  display: inline-block;
+  height: 6px;
+  position: relative;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 6px;
+  color: rgba(0,0,0,.3);
+  margin: 5px 0 0 6px;
+  vertical-align: top;
+  will-change: transform;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
 @import-normalize;
 @import "~bootstrap/scss/bootstrap";
 @import './_header';

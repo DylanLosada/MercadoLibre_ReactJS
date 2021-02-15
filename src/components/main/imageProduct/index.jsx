@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 
 // install Swiper's Thumbs component
-Swiper.use([Thumbs]);
+// Swiper.use([Thumbs]);
 
 const ImageProduct = ({producto}) => {
 

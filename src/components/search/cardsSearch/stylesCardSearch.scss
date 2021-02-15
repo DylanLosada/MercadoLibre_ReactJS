@@ -41,6 +41,7 @@
             align-items: flex-start;
             justify-content: flex-start;
             flex-grow: 1;
+            position: relative;
 
             &-name{
                 font-size: 2rem;
@@ -55,16 +56,57 @@
                 font-size: 2.4rem;
                 font-weight: 400;
                 margin-right: 0.8rem;
+
+
+                &-off{
+                    font-size: 1.4rem;
+                    vertical-align: 3px;
+                    padding-left: 1rem;
+                    color: #39b54a;
+                }
+                
             }
 
-            &-state{
+            &-priceBefore{
+                font-size: 1.6rem;
+                color: #666;
+                text-decoration: line-through;
+            }
+
+            &-info{
+                display: inherit;
+                flex-direction: row;
+                width: 33%;
+                justify-content: space-between;
+                align-items: center;
                 color: #666;    
                 font-size: 1.4rem;
                 font-weight: 500;
                 margin-top: 2rem;
 
-                &::first-letter{
-                    text-transform: uppercase;
+                &-state{
+                    margin: 0;
+                    font-size: inherit;
+                    &::first-letter{
+                        text-transform: uppercase;
+                    }
+                }
+    
+                &-shippingFull{
+                    background-color: #e6f7ee;
+                    color: #00a650;
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    line-height: 1;
+                    padding: 1px 5px 4px;
+                }
+
+                &-shippingFree{
+                    color: #00a650;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 1;
+                    margin-right: 10px;
                 }
             }
         }

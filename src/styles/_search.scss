@@ -1,20 +1,28 @@
 @import '../components/search/cardsSearch/stylesCardSearch.scss'; // Cards para la busqueda.
+@import '../components/search/asideSearch/stylesAsideSearch.scss'; // Aside para la busqueda de productos
 
 .search{
 
-    @include displayFlex(row, center, center);
+    @include displayFlex(row, flex-start, center);
     padding: 2rem 5rem;
     height: auto;
     min-height: 100vh;
+    position: relative;
 
     &__products{
         flex-basis: 75%;
+        max-width: 75%;
         min-height: 90vh;
         background-color: $colorBlanco;
-        border-radius: 0.5rem;
+        border-radius: 0.5rem;;
     }
 
     &__aside{
-        flex-basis: 24%;
+        flex: 1 1;
+        margin-top: 0.5rem;
+        max-width: 29.4rem;
+        min-width: 21rem;
+        padding-right: 1.4rem;
+        width: 100%;
     }
 }
