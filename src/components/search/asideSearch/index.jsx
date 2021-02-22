@@ -1,7 +1,7 @@
 import {Fragment, useEffect, useState} from 'react'
 import {Link, useLocation} from 'react-router-dom'
 
-const AsideSearch = ({searchParam, dataSearch, setFilters, filters}) => {
+const AsideSearch = ({searchParam, dataSearch, setFilters = null, filters = null}) => {
 
     const pathProduct = dataSearch => dataSearch[0]?.filters.filter(categoria => categoria.id === 'category');
 

@@ -1,4 +1,5 @@
 import {Dropdown, DropdownButton} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
 const Usuario = ({imgCarrito, carrito, deleteFav}) => {
     return ( 
@@ -41,7 +42,9 @@ const Usuario = ({imgCarrito, carrito, deleteFav}) => {
                         
                     </DropdownButton>
                 </li>
-                <li className = 'header__navBar-usuario-ul-liCarriro'><img src={imgCarrito} alt="Carrito"/></li>
+                <Link to = {'/carrito'} className = 'header__navBar-usuario-ul-liCarriro'>
+                    <img src={imgCarrito} alt="Carrito"/>
+                </Link>
             </ul>
         </nav>
      );

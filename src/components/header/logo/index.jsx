@@ -1,7 +1,9 @@
+import {Link} from 'react-router-dom'
+
 const Logo = () => ( 
-        <div>
+        <Link to = {'/'}>
            <div id = 'logoTitle'></div>
-        </div>
+        </Link>
 );
 
 export default Logo;

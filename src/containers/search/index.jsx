@@ -1,23 +1,25 @@
+/* eslint-disable no-undef */
 /* eslint-disable default-case */
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import {Link, useParams} from 'react-router-dom'
 
 import AsideSearch from '../../components/search/asideSearch'
 import CardSearch from '../../components/search/cardsSearch'
+import { GlobalContext } from '../../context/GlobalContext'
 
 import getDataFromApi from '../../modules/fetch'
 
-const Search = () => {
+const Search = ({categories = null}) => {
 
     // Consigo los parametros de la busqueda.
-    const {searchParam, filter, filter1, filter2, filter3, filter4, filter5 } = useParams();
+    const {searchParam, categorie, filter, filter1, filter2, filter3, filter4, filter5 } = useParams();
 
-    // state para la busqueda.
-    const [search, setSearch] = useState('');
     const [dataSearch,  setDataSearch] = useState([]);
 
     // State para los filtros de busqueda.
     const [filters, setFilters] = useState([]);
+
+    const {search, setSearch} = useContext(GlobalContext)
 
     useEffect(() => {
         
@@ -28,15 +30,28 @@ const Search = () => {
                 .then(data => setSearch(data.results))
             console.log(filtersParams)
         }else{
-            const apiMlVisto = `https://api.mercadolibre.com/sites/MLA/search?q=${getSearchParam(searchParam)}`;
-            getDataFromApi(apiMlVisto)
-                .then(data => data.json())
-                .then(data => setSearch(data.results))
-                .catch(e => console.log(e));
 
-            getDataFromApi(apiMlVisto)
-                .then(data => data.json())
-                .then(data => setDataSearch([data]));
+            // if(categories){
+            //     const apiCategoria = `https:api.mercadolibre.com/sites/MLA/search?category=${categorie}`
+            //     getDataFromApi(apiCategoria)
+            //         .then(data => data.json())
+            //         .then(data => setDataSearch([data]))
+            //         .catch(e => console.log(e));
+
+            //     getDataFromApi(apiCategoria)
+            //         .then(data => data.json())
+            //         .then(data => setSearch(data.results))
+            //         .catch(e => console.log(e));
+            // }else{
+                const apiMlVisto = `https://api.mercadolibre.com/sites/MLA/search?${categories ? `category=${categorie}` : `q=${getSearchParam(searchParam)}`}`;
+                getDataFromApi(apiMlVisto)
+                    .then(data => data.json())
+                    .then(data => setSearch(data.results))
+                    .catch(e => console.log(e));
+
+                getDataFromApi(apiMlVisto)
+                    .then(data => data.json())
+                    .then(data => setDataSearch([data]));
         }
     }, [searchParam, filters])
 
@@ -81,7 +96,7 @@ const Search = () => {
                 <div className = 'section__container search'>
                     <aside className = 'search__aside'>
                         <AsideSearch
-                            searchParam = {getParam(searchParam)}
+                            searchParam = {(categories) ? categorie : getParam(searchParam)}
                             dataSearch = {dataSearch}
                             setFilters = {setFilters}
                             filters = {filters}
@@ -91,6 +106,7 @@ const Search = () => {
                        {search.length > 0 ? 
                             <CardSearch 
                                     search = {search}
+                                    setSearch = {setSearch}
                             /> : <h2>No tenemos este producto en este momento</h2>} 
                     </section>
                 </div>

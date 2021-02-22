@@ -3,8 +3,9 @@ import ImageProduct from '../../components/main/imageProduct'
 
 import getDataFromApi from '../../modules/fetch';
 
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
 import {Link, useParams} from 'react-router-dom'
+import { GlobalContext } from '../../context/GlobalContext';
 
 const Producto = () => {
 
@@ -14,24 +15,31 @@ const Producto = () => {
 
     // Cargo el state del producto
     const [producto, setProducto] = useState([])
+    const [infoProduct, setInfoProduct] = useState('')
+
+    const {search} = useContext(GlobalContext)
 
     useEffect(() => {
         const apiItems = `https://api.mercadolibre.com/items?ids=${idProducto}` 
         getDataFromApi(apiItems)
             .then(data => data.json())
             .then(data => setProducto(data[0].body))
-    }, [idProducto])
+        setInfoProduct(search.find(result => result.id === idProducto))
+        // console.log(search.find(result => result.id === idProducto))
+        
+    }, [idProducto, search])
 
     return (
         <>
             <section className="section">
                 <div className="section__container producto">
-                    <div className = 'row d-flex flex-row justify-content-between'>
+                    <div className = 'row d-flex flex-row justify-content-between m-0'>
                         <ImageProduct 
                             producto = {producto}
                         />
                         <FormCompra 
                             producto = {producto}
+                            infoProduct = {infoProduct}
                         />
                     </div>
                 </div>

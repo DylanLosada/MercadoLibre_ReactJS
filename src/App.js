@@ -6,7 +6,10 @@ import Main from './containers/Main';
 import Search from './containers/search';
 import SearchCategorie from './containers/searchCategories';
 import Producto from './containers/producto';
+import Carrito from './components/carrito';
 import './styles/App.scss';
+
+import {GlobalExportContext} from './context/GlobalContext';
 
 function App() {
 
@@ -32,34 +35,40 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
-        <Header 
-          setCarrito = {setCarrito}
-          carrito = {carrito}
-          // setItemSearch = {setItemSearch}
-        />
-        <Switch>
-
-          <Route exact path = '/'>
-            <Main 
+      <GlobalExportContext>
+        <BrowserRouter>
+            <Header 
               setCarrito = {setCarrito}
               carrito = {carrito}
+              // setItemSearch = {setItemSearch}
             />
-          </Route>
+            <Switch>
 
-          <Route exact path = {`/search/:searchParam/:filter?/:filter1?/:filter2?/:filter3?/:filter4?/:filter5?`}>
-            <Search />
-          </Route>
+              <Route exact path = '/'>
+                <Main 
+                  setCarrito = {setCarrito}
+                  carrito = {carrito}
+                />
+              </Route>
 
-          <Route exact path = '/search-categorie/:categorie'>
-            <SearchCategorie />
-          </Route>
+              <Route exact path = {`/search/:searchParam/:filter?/:filter1?/:filter2?/:filter3?/:filter4?/:filter5?`}>
+                <Search />
+              </Route>
 
-          <Route exact path = '/producto/:idProducto'>
-            <Producto />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+              <Route exact path = '/search-categorie/:categorie'>
+                <SearchCategorie />
+              </Route>
+
+              <Route exact path = '/producto/:idProducto'>
+                <Producto />
+              </Route>
+
+              <Route exact path = '/carrito'>
+                <Carrito />
+              </Route>
+            </Switch>
+          </BrowserRouter>
+        </GlobalExportContext>
     </>
   );
 }

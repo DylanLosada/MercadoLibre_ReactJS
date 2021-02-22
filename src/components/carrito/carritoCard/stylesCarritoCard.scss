@@ -1,0 +1,16 @@
+.carritoCard__counter{
+    @include displayFlex(row, flex-start, center);
+    padding: 1.25rem;
+    flex-basis: 15%;
+
+    &-button{
+        flex-basis: 33%;
+    }
+
+    &-display{
+        @include fontLigth($fontClara, 1.8rem);
+        flex-grow: 1;
+        text-align: center;
+        font-weight: 600;
+    }
+}

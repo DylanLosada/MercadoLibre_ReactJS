@@ -21,12 +21,15 @@ const Searcher = ({imgLupa, setItemSearch}) => {
     }
     
     return (
-        <form className = 'header__searcher shadow rounded'>
+        <form 
+            className = 'header__searcher shadow rounded'
+            method = 'GET'
+            action = { (searcher.length > 0) ? `/search/${searcher}` : '/' }
+        >
             <input
                 type = 'text'
                 placeholder = 'Buscar productos, marcas y más...'
                 onChange = { (e) => searchFunction(e)}
-                // onSubmit = {}
             ></input>
             <Link to={ (searcher.length > 0) ? `/search/${searcher}` : '/' }
                     type = 'submit'

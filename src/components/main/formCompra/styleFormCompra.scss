@@ -10,7 +10,7 @@
     &-title{
         &-state{
             @include displayFlex(row, center, space-between);
-            width: 34%;
+            width: 45%;
             color: rgba(0,0,0,.45);
             font-weight: normal;
         }
@@ -37,5 +37,60 @@
             font-weight: 300;
             color: rgba(0,0,0,.8);
         }
+
+        &-amount{
+            line-height: 1;
+            margin-top: 0.5rem;
+
+            &-subPrice{
+                @include displayFlex(column, flex-start, center);
+                font-size: 1.8rem;
+                color: black;
+
+                &-amount{
+                    span{
+                        color: #00a650;
+                    }
+                }
+
+                &-mediosPago{
+                    font-size: 1.4rem;
+                    line-height: 1;
+                }
+            }
+        }
     }
+
+    &-shipping{
+        &-container{
+            @include displayFlex(row, center, space-evenly);
+            width: 100%;
+            color: #00a650;
+
+            &-car{
+                &-svg{
+                    fill: #00a650;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            &-title{
+                font-size: 16px;
+                // margin-bottom: 2px;
+                line-height: 1.3;
+                color:  inherit;
+
+                span{
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+.producto__formCompra-shipping-container-car-svg--full{
+    height: 16px;
+    width: 56px;
+    margin-top: -1px;
 }
