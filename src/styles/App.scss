@@ -142,6 +142,11 @@ $boxShadowButtonSliderHover: 0 7px 16px 0 rgba(0,0,0,.2),0 1px 3px 0 rgba(0,0,0,
 
 // Estilos usados para limpiar los user agent.
 
+body{
+  min-height: 100vh;
+  background-color: #eeeeee;
+}
+
 :root{
   font-size: 10px;
   font-family: $fontClara;
@@ -241,6 +246,43 @@ input[type="number"]{
   transition: all .3s ease-out;
 }
 
+// Pico para los menús desplegables
+%topMenuDrop{
+    content: "";
+  left: 21.2rem;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+      border-right-width: 0px;
+      border-bottom-color: transparent;
+      border-bottom-style: solid;
+      border-bottom-width: 0px;
+      border-left-width: 0px;
+  border-right-width: 14px;
+  border-left-width: 14px;
+  border-bottom: 14px solid #333;
+  top: -8px;
+  position: absolute;
+  display: block;
+}
+
+// Flecha que indica un menú desplegable
+%rowDropMenu{
+  border-style: solid;
+  border-width: 0 1.5px 1.5px 0;
+  content: '';
+  display: inline-block;
+  height: 6px;
+  position: relative;
+  transform: rotate(45deg);
+  width: 6px;
+  color: rgba(0, 0, 0, 0.3);
+  margin: 5px 0 0 6px;
+  vertical-align: top;
+  will-change: transform;
+  transition: all .3s ease-out;
+}
+
 @import-normalize;
 @import "~bootstrap/scss/bootstrap";
 @import './_header';
@@ -248,11 +290,28 @@ input[type="number"]{
 @import './search';
 @import './producto';
 @import './carrito';
+@import './finishBuy';
+@import './signIn';
+@import './signUp';
 
 // Modifico clases de Boots.
 .dropdown-menu{
   background: transparent;
   border: none;
+}
+
+// Estilos para los dropMenu (Flechita que los simboliza)
+.dropMenu{
+  &::after{
+    @extend %rowDropMenu;
+  }
+}
+
+.dropMenu--colorRow{
+  &::after{
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle{

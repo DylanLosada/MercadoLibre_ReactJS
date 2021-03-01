@@ -1,0 +1,15 @@
+.errorCreate{
+    margin: 0 auto;
+    margin-top: 4rem;
+    width: 100%;
+    justify-content: center;
+
+    &__errorMsg{
+        display: block;
+        border-radius: 0.4rem;
+        font-size: 2rem;
+        padding: 2rem 2rem;
+        background-color: rgba(248, 8, 8, 0.61);
+        color: #fff;
+    }
+}

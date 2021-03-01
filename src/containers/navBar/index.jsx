@@ -1,38 +1,25 @@
 import getDataFromApi from '../../modules/fetch'
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import {Link} from 'react-router-dom'
-import {Dropdown, DropdownButton} from 'react-bootstrap'
 import Usuario from '../../components/header/cuenta';
+import { UserLogin } from '../../context/UserLoginContext';
 
 const apiCategorias = 'https://api.mercadolibre.com/sites/MLA/categories'
 
 const NavBar = ({imgLocation, imgCarrito, carrito, setCarrito, categorias}) => {
 
-    const deleteFav = (id) => {
-        let newCarrito = carrito.filter( producto => producto.id !== id)
-        setCarrito(newCarrito);
-    }
-
-    // const probando = (idCategories) => {
-    //     let arraySubCategories = [];
-    //     idCategories.map(id => {
-    //         const apiPrueba = `https://api.mercadolibre.com/categories/${id}`;
-    //          getDataFromApi(apiPrueba)
-    //             .then(data => data.json())
-    //             .then(data => data)
-    //     })
-    // }
-
-
-    // const [categoria, setCategoria] = useState([])
+    const {user, sessionOut} = useContext(UserLogin)
 
     useEffect(() => { 
         getDataFromApi(apiCategorias)
             .then(data => data.json())
             .then(data => console.log(data.splice(0, 15)))
-            // .then(data => probando(data[0].id))
-
     }, [])
+
+    const deleteFav = (id) => {
+        let newCarrito = carrito.filter( producto => producto.id !== id)
+        setCarrito(newCarrito);
+    }
 
     return ( 
         <div className = 'header__navBar flex-1 flex-grow'>
@@ -75,6 +62,8 @@ const NavBar = ({imgLocation, imgCarrito, carrito, setCarrito, categorias}) => {
                 imgCarrito = {imgCarrito}
                 carrito = {carrito}
                 deleteFav = {deleteFav}
+                user = {user}
+                sessionOut = {sessionOut}
             />
         </div>
      );

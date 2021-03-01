@@ -1,13 +1,18 @@
 import {Dropdown, DropdownButton} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import UserAccount from '../userAccount'
 
-const Usuario = ({imgCarrito, carrito, deleteFav}) => {
+const Usuario = ({imgCarrito, carrito, deleteFav, user, sessionOut}) => {
     return ( 
         <nav className = 'header__navBar-usuario'>
             <ul className = 'header__navBar-usuario-ul'>
-                <li><a className = 'header__navBar-usuario-ul-option' href>Invitado</a></li>
+                <li className = {user.length > 0 && 'header__navBar-usuario-ul-option header__navBar-usuario-ul-option--width dropMenu dropMenu--colorRow relative'}>{user.length > 0 ? <UserAccount user = {user} sessionOut = {sessionOut} /> : <Link className = 'header__navBar-usuario-ul-option header__navBar-usuario-ul-option--width' to = {'/sign-in'}>Creá tu cuenta</Link>}</li>
+                {user.length === 0 ? <li><Link 
+                        className = 'header__navBar-usuario-ul-option' 
+                        to = {'/sign-up'}
+                    >Ingresá</Link></li> : null}
                 <li><a className = 'header__navBar-usuario-ul-option'>Mis compras</a></li>
-                <li>
+                {user.length > 0 ? <li>
                     <DropdownButton className = 'relative btn--modifiqued'  title="Favoritos">
                         <div id="favoritos">
                             <div className = 'favoritos__title'>Favoritos</div>
@@ -41,8 +46,8 @@ const Usuario = ({imgCarrito, carrito, deleteFav}) => {
                         </div>
                         
                     </DropdownButton>
-                </li>
-                <Link to = {'/carrito'} className = 'header__navBar-usuario-ul-liCarriro'>
+                </li> : null }
+                <Link to = {user.length > 0 ? '/carrito' : '/sign-in'} className = 'header__navBar-usuario-ul-liCarriro'>
                     <img src={imgCarrito} alt="Carrito"/>
                 </Link>
             </ul>

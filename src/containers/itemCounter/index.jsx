@@ -1,5 +1,6 @@
 import {useState, useEffect, useContext} from 'react';
 import {Button, Form} from 'react-bootstrap';
+import FormField from './formField'
 import { GlobalContext } from '../../context/GlobalContext';
 
 const stylesClickOnInput = (e) => {
@@ -132,7 +133,9 @@ const ItemCounter = ({stock, initial, producto}) => {
                 (producto.original_price) ? (100 - (producto.price / producto.original_price)* 100).toFixed(0) : null, 
                 (producto.original_price) ? producto.original_price : null,
                 stock,
-                producto.price
+                producto.price,
+                producto.shipping.free_shipping,
+                producto.shipping.logistic_type
             )
             setCarrito([...carrito, product])
             localStorage.setItem('carrito', JSON.stringify([...carrito, product]));
@@ -202,33 +205,14 @@ const ItemCounter = ({stock, initial, producto}) => {
                             <span id = 'labelMasUni' className = 'buttonContainer__ul-cantidad-labelMasUni'>Más de 6 unidades</span>
                             <Form.Group className = 'buttonContainer__ul-cantidad-masCantidad relative'>
                                 <Form.Label htmlFor="cantidad">Cantidad:</Form.Label>
-
-                                <div 
-                                    onClick={stylesClickOnInput} 
-                                    className = 'buttonContainer__ul-cantidad-masCantidad-divContainer'
-                                    id = 'inputContainer'
-                                >
-                                    <div id='inputContainer__barra' className = 'buttonContainer__ul-cantidad-masCantidad-divContainer-barra'></div>
-                                    <Form.Control id = 'liMasUnidadesInput'
-                                                className = 'buttonContainer__ul-cantidad-masCantidad-input' 
-                                                name ='cantidad' 
-                                                type="number"
-                                                min = '7'
-                                                max = {stock}
-                                                required
-                                                // value = {cantidaInput}
-                                                onChange = {inputEvent}
-                                    />
-
-                                    <Button 
-                                        id = 'buttonSubmitInputCantidad'
-                                        className = 'absolute buttonContainer__ul-cantidad-masCantidad-buttonSubmit'
-                                        onClick = { () => inputEvent}
-                                    >
-                                        <i class="fas fa-greater-than"></i>
-                                    </Button>
-                                </div>
                                 
+                                <FormField 
+                                    button = {true}
+                                    stylesClickOnInput = {stylesClickOnInput}
+                                    stock = {stock}
+                                    inputEvent = {inputEvent}
+                                    name = 'cantidad'
+                                />
                             </Form.Group>
                         </li>
                      </ul>

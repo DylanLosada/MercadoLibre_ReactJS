@@ -1,0 +1,67 @@
+@import '../components/log/errorInForm/stylesErrorInForm.scss'; // Mensaje de error
+
+.signIn{
+    @include fontLigth($fontClara);
+    width: 40%;
+
+    &__form{
+
+        &-container{
+            @include displayFlex(column, center, flex-start);
+            box-shadow: 0 1px 3px rgba(0,0,0,.2);
+            margin: 1.5em 0 12px;
+            padding: 32px 32px;
+            background-color: #fff;
+            border-radius: 4px;
+            min-height: 44.1rem;
+            min-width: 77rem;
+
+            &-field{
+                flex-basis: 45%;
+
+                &-label{
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+
+    &__spinnerContainer{
+        @include displayFlex(row, center, center);
+        margin-top: 3rem;
+        width: 100%;
+        height: 100%;
+
+        &-spinner{
+            width: 10rem;
+            height: 10rem;
+        }
+    }
+    
+    &__buttonContainer{
+        margin-top: 3rem;
+
+        &-button{
+            font-size: 1.6rem;
+            font-weight: 600;
+            padding: 16px 32px;
+            min-width: 140px;
+            
+            &:active{
+                height: 58px;
+                font-size: 1.6rem;
+                font-weight: 600;
+                padding: 16px 32px;
+                min-width: 140px;
+            }
+        }
+    }
+}
+
+.signIn__form-container-field--marginTop{
+    margin-top: 6rem;
+}
+
+.lineBottomSignIn{
+    bottom: -6%;
+}

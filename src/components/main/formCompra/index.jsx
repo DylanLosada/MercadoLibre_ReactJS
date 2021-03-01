@@ -3,6 +3,7 @@ import ItemCounter from '../../../containers/itemCounter'
 
 
 const FormCompra = ({producto, infoProduct}) => {
+    console.log(producto)
     return (
         <Form className = 'producto__formCompra col-xl-3'>
             <Form.Group className = 'producto__formCompra-title'>

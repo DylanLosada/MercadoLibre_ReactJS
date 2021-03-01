@@ -1,10 +1,11 @@
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import {useState} from 'react'
-
 
 const Searcher = ({imgLupa, setItemSearch}) => {
 
     const [searcher, setSearcher] = useState('')
+
+    const history = useHistory()
 
     const searchFunction = (e) => {
         let get = '';
@@ -19,12 +20,18 @@ const Searcher = ({imgLupa, setItemSearch}) => {
 
         setSearcher(get);
     }
+
+    const handleSubmitSearch = (e) => {
+        e.preventDefault()
+        history.push((searcher.length > 0) ? `/search/${searcher}` : '/')
+    }
     
     return (
         <form 
             className = 'header__searcher shadow rounded'
             method = 'GET'
-            action = { (searcher.length > 0) ? `/search/${searcher}` : '/' }
+            onSubmit = {handleSubmitSearch}
+            // action = { (searcher.length > 0) ? `/search/${searcher}` : '/' }
         >
             <input
                 type = 'text'

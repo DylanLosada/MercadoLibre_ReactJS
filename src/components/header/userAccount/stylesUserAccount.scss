@@ -1,0 +1,44 @@
+.navUserHidden{
+    transform: scale(1, 0);
+    position: absolute;
+    z-index: 20;
+    left: -15rem;
+    top: 2.5rem;
+    width: 20rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: auto;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 15px 20px 0 rgba(0,0,0,.08),0 1px 4px 0 rgba(0,0,0,.08);
+
+    &::before{
+        @extend %topMenuDrop;
+        border-bottom: 14px solid #fff;
+        left: 17.2rem;
+    }
+
+    &__containerLinks{
+        @include fontLigth($fontClara, 1.4rem);
+        padding: 8px 24px;
+
+        &-link{
+            display: block;
+            font-weight: 600;
+            line-height: 1.25;
+            text-align: left;
+            color: #333;
+            padding: 1rem;
+
+            &:hover{
+                text-decoration: none;
+                color: #333;
+            }
+        }
+    }
+}
+
+.fa-user-circle{
+    font-size: 2.5rem;
+    font-weight: normal;
+}

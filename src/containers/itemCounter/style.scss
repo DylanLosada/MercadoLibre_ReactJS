@@ -70,13 +70,15 @@
     border-bottom: 3px solid #ccc;
 }
 
+
 .buttonContainer__ul-cantidad-masCantidad-divContainer-barra{
     position: absolute;
     bottom: 11%;
-    border-bottom: 0.3rem solid #ccc;
+    border-bottom: 0.3rem solid $colorAzulBotones;
     transform-origin: left center;
     width: 60%;
     transform: scale(0, 1);
+    transform-origin: center;
     transition: transform 0.3s;
 }
 

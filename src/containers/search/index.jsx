@@ -2,6 +2,7 @@
 /* eslint-disable default-case */
 import {useState, useEffect, useContext} from 'react'
 import {Link, useParams} from 'react-router-dom'
+import {Pagination} from 'react-bootstrap'
 
 import AsideSearch from '../../components/search/asideSearch'
 import CardSearch from '../../components/search/cardsSearch'
@@ -19,10 +20,15 @@ const Search = ({categories = null}) => {
     // State para los filtros de busqueda.
     const [filters, setFilters] = useState([]);
 
+    // State para la paginacion de los productos
+    const [paginationItems, setPaginationItems] = useState([])
+
+    // Contexto de GlobalContext
     const {search, setSearch} = useContext(GlobalContext)
 
+
     useEffect(() => {
-        
+
         if(filter){
             const filtersParams = addFilters();
             getDataFromApi(filtersParams)
@@ -107,8 +113,13 @@ const Search = ({categories = null}) => {
                             <CardSearch 
                                     search = {search}
                                     setSearch = {setSearch}
-                            /> : <h2>No tenemos este producto en este momento</h2>} 
+                                    setPaginationItems = {setPaginationItems}
+                            /> 
+                        : <h2>No tenemos este producto en este momento</h2>} 
                     </section>
+                </div>
+                <div>
+
                 </div>
             </section>
         </>

@@ -1,1 +1,47 @@
 @import '../components/carrito/carritoCard/stylesCarritoCard.scss'; // Estilos para las tarjetas del carrito
+@import '../components/carrito/carritoCounter/stylesCarritoCounter.scss'; // Estilos para el precio y botón del carrito
+
+
+.carritoContainer{
+    @include displayFlex(column, flex-start, stretch);
+    @include fontLigth($fontClara, 1.7rem);
+    margin-top: 3rem;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    min-height: 38rem;
+    padding: 6.4rem;
+    padding-bottom: 1.9rem;
+    padding-top: 5.5rem;
+    background-color: white;
+    border-radius: 0.4rem;
+
+    &__titleContainer{
+        width: 100%;
+        border-bottom: 1px solid #e6e6e6;
+        margin-bottom: 2rem;
+
+        &-div{
+            width: 19%;
+            padding: 0 64px 15px;
+            border-bottom: 2px solid #333;
+
+            &-title{
+                font-size: 1.7rem;
+                font-weight: 600;
+                color: black;
+            }
+        }
+    }
+
+    &__empty{
+        @include displayFlex(row, center, center);
+        width: 100%;
+        height: 100%;
+
+        &-title{
+            font-size: 3.2rem;
+        }
+    }
+}

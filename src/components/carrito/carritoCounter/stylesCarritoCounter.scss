@@ -1,0 +1,37 @@
+.carritoCounter{
+    @include displayFlex(column, flex-end, center);
+    @include fontLigth($fontClara);
+    padding: 4.8rem 0rem;
+
+    &__container{
+        width: 50%;
+        display: inherit;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 4.8rem;
+        border-bottom: 1px solid #e6e6e6;
+
+        &-shipping{
+            color: $colorAzulBotones;
+            font-weight: 300;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        &-cost{
+            font-size: 2.6rem;
+            color: black;
+            display: inherit;
+            justify-content: space-between;
+        }
+    }
+
+    &__button{
+        padding-top: 4.8rem;
+        
+        &-buy{
+            font-size: 1.8rem;
+            padding: 13px 32px 12px;
+        }
+    }
+}

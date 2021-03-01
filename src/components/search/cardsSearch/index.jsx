@@ -1,10 +1,16 @@
 import {Card, Button, Badge} from 'react-bootstrap';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
-const CardSearch = ({search, oferta = false}) => (
+const CardSearch = ({search, oferta = false, setPaginationItems}) => {
+
+    const location = useLocation().pathname
+
+    return(
         <>
         {search.length > 0 ? search.map( item => 
             <Card
+                key = {item.id}
+                id = {item.id}
                 className = 'cardSearch'
             >
                 <div className= 'cardSearch__cards'>
@@ -22,7 +28,10 @@ const CardSearch = ({search, oferta = false}) => (
                         </svg>
                     </Button> */}
 
-                    <Link to = {`/producto/${item.id}`} className = 'cardSearch__cards-containerImg'>
+                    <Link to = {`/producto/${item.id}`}
+                        // on
+                        className = 'cardSearch__cards-containerImg'
+                    >
                         <Card.Img
                             className = 'cardSearch__cards-containerImg-img img-fluid' 
                             variant="top" 
@@ -54,6 +63,6 @@ const CardSearch = ({search, oferta = false}) => (
             
         </>
     )
-
+}
 
 export default CardSearch;

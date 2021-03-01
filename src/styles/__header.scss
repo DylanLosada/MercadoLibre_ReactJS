@@ -2,6 +2,7 @@
 @import '../components/header/logo/style.scss'; // Logo
 @import '../components/header/searcher/style.scss'; // Searcher
 @import '../containers/navBar/style.scss'; // NavBar
+@import '../components/header/userAccount/stylesUserAccount.scss'; // Menú para el usurio
 
 // Header container
 #header{
@@ -9,6 +10,11 @@
     background-color: $colorPrincipal;
     min-height: 1vh;
     box-sizing: content-box;
+}
+
+#headerSignUp{
+    @extend #header;
+    height: 35vh;
 }
 
 .header__container{

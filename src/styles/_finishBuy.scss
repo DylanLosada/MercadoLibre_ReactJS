@@ -1,0 +1,182 @@
+.finishBuy{
+    @include displayFlex(row, flex-start, space-between);
+    @include fontLigth($fontClara);
+    min-height: 100vh;
+
+    &__adress{
+
+        &-title{
+            color: black;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 3.2rem;
+        }
+
+        &-container{
+            @include displayFlex(row, center, flex-start);
+            padding: 20px 32px;
+            background-color: #f5f5f5;
+            border-radius: 0.4rem;
+
+            &-symbol{
+                width: 48px;
+                padding: 1rem 0;
+                max-width: 48px;
+                max-height: 48px;
+                border-radius: 50%;
+                background-color: white;
+                text-align: center;
+                margin-right: 2.4rem;
+
+                i{
+                    font-size: 2rem;
+                    color: $colorAzulBotones;
+                }
+            }
+        }
+    }
+
+    &__package{
+        margin: 2.4rem 0 1.6rem;
+
+        &-name{
+            color: #333;
+            font-size: 15px;
+            font-weight: 600;
+        }
+    }
+
+    &__cardShipping{
+        background-color: #fff;
+        border-radius: 0.4rem;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+        border: none;
+
+        &-header{
+            background-color: #fff;
+            padding: 2.4rem;
+            border-bottom: 1px solid #eee;
+
+            &-title{
+                color: #333;
+                font-size: 20px;
+                font-weight: 800;
+                line-height: 1.45;
+
+                & > span{
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+
+        &-body{
+            @include displayFlex(row, center, flex-start);
+            padding: 2.4rem 3.2rem;
+
+            &-imgContainer{
+                width: 5.8rem;
+                height: 5.8rem;
+                margin-right: 2.4rem;
+                border-radius: 50%;
+                overflow: hidden;
+
+                &-img{
+                    display: block;
+                    object-fit: cover;
+                    object-position: left;
+                }
+            }
+
+            &-infoContaier{
+                display: inherit;
+                flex-direction: column;
+                justify-content: center;
+
+                &-name{
+                    margin: 0%;
+                }
+
+                &-quantity,
+                &-price{
+                    margin: 0%;
+                }
+
+                &-quantity--marginBottom{
+                    margin-bottom: 0.4rem;
+                }
+            }
+        }
+    }
+
+    &__buttonContainer{
+        @include displayFlex(row, center, flex-end);
+        margin-top: 3rem;
+
+        &-button{
+            font-size: 1.6rem;
+            font-weight: 600;
+            padding: 16px 32px;
+            min-width: 140px;   
+        }
+    }
+
+    &__summaryBuy{
+        height: 100%;
+        background-color: #f5f5f5;
+    
+        &-container{
+            position: sticky;
+            top: 0;
+            padding: 4.8rem;
+            width: 41.2rem;
+
+            &-titleContainer{
+                color: #333;
+                font-size: 1.6rem;
+                padding-top: 24px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #e6e6e6;
+                font-weight: 400;
+                line-height: 1.25;
+
+                &-title{
+                    font-size: 16px;
+                    line-height: 16px;
+                    font-weight: 600;
+                    color: #333;
+                }
+            }
+
+            &-info{
+                margin-bottom: 1.6rem;
+                border-bottom: 1px solid #e6e6e6;
+
+                &-wrap{
+                    padding-top: 10px;
+                    width: 100%;
+                    &-product,
+                    &-shipping{
+                        @include displayFlex(row, center, space-between);
+                        font-size: 16px;
+                        font-weight: 300;
+                        color: #333;
+                        padding-bottom: 10px;
+                    }
+                }
+            }
+
+            &-total{
+                padding-top: 2.4rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                color: #333;
+            }
+        }
+    }
+}
+
+.fontSizePrices{
+    font-size: 1.8rem;
+}

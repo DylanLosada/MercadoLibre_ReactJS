@@ -6,14 +6,26 @@
 
 .header__navBar-usuario-ul{
     display: inherit;
-    flex-basis: 95%;
+    flex-basis: 100%;
     justify-content: space-between;
+    align-items: center;
 
     &-option{
-            display: block;
-            @include fontLigth($fontClara);
-            font-weight: 400;
-            color: black;
+        display: block;
+        @include fontLigth($fontClara);
+        font-weight: 400;
+        color: black;
+        
+        &:hover > nav{
+            transform: scale(1, 1);
+        }
+    }
+
+    &-option--width{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-width: 24%;
     }
 }
 

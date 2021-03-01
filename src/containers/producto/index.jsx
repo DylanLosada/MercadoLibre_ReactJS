@@ -11,7 +11,6 @@ const Producto = () => {
 
     // recupero el id del producto para realizar la nueva consulta
     const {idProducto} = useParams();
-    console.log(idProducto);
 
     // Cargo el state del producto
     const [producto, setProducto] = useState([])
@@ -24,10 +23,8 @@ const Producto = () => {
         getDataFromApi(apiItems)
             .then(data => data.json())
             .then(data => setProducto(data[0].body))
-        setInfoProduct(search.find(result => result.id === idProducto))
-        // console.log(search.find(result => result.id === idProducto))
-        
-    }, [idProducto, search])
+        search.length > 0 && setInfoProduct(search.find(result => result.id === idProducto))
+    }, [idProducto])
 
     return (
         <>
