@@ -9,6 +9,7 @@ import CardSearch from '../../components/search/cardsSearch'
 import { GlobalContext } from '../../context/GlobalContext'
 
 import getDataFromApi from '../../modules/fetch'
+import { UserSearchData } from '../../context/UserSearchData'
 
 const Search = ({categories = null}) => {
 
@@ -25,6 +26,7 @@ const Search = ({categories = null}) => {
 
     // Contexto de GlobalContext
     const {search, setSearch} = useContext(GlobalContext)
+    const {setLastSaw, lastSaw} = useContext(UserSearchData)
 
 
     useEffect(() => {
@@ -36,28 +38,18 @@ const Search = ({categories = null}) => {
                 .then(data => setSearch(data.results))
             console.log(filtersParams)
         }else{
+            const apiMlVisto = `https://api.mercadolibre.com/sites/MLA/search?${categories ? `category=${categorie}` : `q=${getSearchParam(searchParam)}`}`;
+            getDataFromApi(apiMlVisto)
+                .then(data => data.json())
+                .then(data => setSearch(data.results))
+                .catch(e => console.log(e));
 
-            // if(categories){
-            //     const apiCategoria = `https:api.mercadolibre.com/sites/MLA/search?category=${categorie}`
-            //     getDataFromApi(apiCategoria)
-            //         .then(data => data.json())
-            //         .then(data => setDataSearch([data]))
-            //         .catch(e => console.log(e));
-
-            //     getDataFromApi(apiCategoria)
-            //         .then(data => data.json())
-            //         .then(data => setSearch(data.results))
-            //         .catch(e => console.log(e));
-            // }else{
-                const apiMlVisto = `https://api.mercadolibre.com/sites/MLA/search?${categories ? `category=${categorie}` : `q=${getSearchParam(searchParam)}`}`;
-                getDataFromApi(apiMlVisto)
-                    .then(data => data.json())
-                    .then(data => setSearch(data.results))
-                    .catch(e => console.log(e));
-
-                getDataFromApi(apiMlVisto)
-                    .then(data => data.json())
-                    .then(data => setDataSearch([data]));
+            getDataFromApi(apiMlVisto)
+                .then(data => data.json())
+                .then(data => {
+                    setDataSearch([data])
+                    setLastSaw(data)
+                });
         }
     }, [searchParam, filters])
 
@@ -106,6 +98,8 @@ const Search = ({categories = null}) => {
                             dataSearch = {dataSearch}
                             setFilters = {setFilters}
                             filters = {filters}
+                            setLastSaw = {setLastSaw}
+                            lastSaw = {lastSaw}
                         />
                     </aside>
                     <section className = 'search__products'>

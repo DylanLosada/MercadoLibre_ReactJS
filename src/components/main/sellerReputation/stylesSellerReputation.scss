@@ -1,0 +1,119 @@
+.sellerReputation{
+    width: 100%;
+    // margin-top: 2.5rem;
+    padding: 32px 16px;
+
+    &__logoContainer{
+        @include displayFlex(row, center, flex-start);
+        margin-bottom: 18px;
+
+        &-logo{
+            width: 48px;
+            height: 48px;
+            position: relative;
+            margin-right: 14px;
+            padding: 2px;
+        }
+
+        &-name{
+            color: #000;
+            font-weight: 400;
+            font-size: 14px;
+            text-transform: lowercase;
+        }
+    }
+
+    &__title{
+        color: rgba(0,0,0,.8);
+        font-size: 18px;
+        font-weight: 400;
+        width: 100%;
+        margin-bottom: 28px;
+    }
+
+    &__mercadoLider{
+        @include displayFlex(row, center, flex-start);
+        width: 100%;
+        margin-bottom: 20px;
+
+        &-goal{
+            fill: #00a650;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        &-title{
+            display: inherit;
+            flex-direction: column;
+            font-size: 1.6rem;
+            color: #00a650;
+            font-weight: 600;
+
+            span{
+                font-size: 1.4rem;
+                color: rgba(0,0,0,.45);
+                font-weight: normal;
+            }
+        }
+    }
+    
+    &__colorContainer{
+        width: 100%;
+        min-height: 0.8rem;
+        &-color{
+            width: 20%;
+            height: 8px;
+            margin-top: 2px;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            float: left;
+            border-left: 6px solid #fff;
+            opacity: 0.3;
+        }
+
+        &-color--red{
+            background-color: red;
+        }
+
+        &-color--orange{
+            background-color: orange;
+        }
+
+        &-color--yellow{
+            background-color: yellow;
+        }
+
+        &-color--green{
+            background-color: greenyellow;
+        }
+
+        &-color--darkGreen{
+            background-color: green;
+        }
+    }
+
+    &__soldQuantityContainer{
+        margin-top: 1.6rem;
+
+        &-soldQuantity{
+            @include displayFlex(column, center, center);
+            font-size: 24px;
+            color: #000;
+            line-height: 1.2;
+            font-weight: 400;
+
+            span{
+                margin-top: 8px;
+                font-size: 14px;
+                color: rgba(0,0,0,.8);
+            }
+        }
+    }
+}
+
+.colorActive{
+    opacity: 1;
+    height: 12px;
+    margin: 0;
+}

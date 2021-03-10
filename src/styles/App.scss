@@ -142,7 +142,7 @@ $boxShadowButtonSliderHover: 0 7px 16px 0 rgba(0,0,0,.2),0 1px 3px 0 rgba(0,0,0,
 
 // Estilos usados para limpiar los user agent.
 
-body{
+#root{
   min-height: 100vh;
   background-color: #eeeeee;
 }
@@ -170,6 +170,11 @@ input[type="number"]{
   margin-right: auto;
   margin-left: auto;
   position: relative;
+}
+
+.section__container--detailProduct{
+  margin: 0px;
+  width: 100%;
 }
 
 .section__title{

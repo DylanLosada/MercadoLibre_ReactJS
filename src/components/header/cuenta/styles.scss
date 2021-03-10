@@ -27,6 +27,24 @@
         align-items: center;
         min-width: 24%;
     }
+
+    &-fav{
+
+        &::after{
+            @extend %rowDropMenu;
+            color: black;
+        }
+
+        &-dropDown{
+            position: absolute;
+            z-index: 40;
+            transform: scale(1, 0);
+        }
+
+        &:hover > &-dropDown {
+            transform: scale(1);
+        }
+    }
 }
 
 .header__navBar-usuario-ul-liCarriro{
@@ -44,20 +62,24 @@
     
 }
 
-#favoritos{
+.favoritos{
+
+    @include fontLigth($fontClara);
     @include displayFlex(column, center, space-between);
     position: absolute;
     background-color: $colorBlanco;
     box-shadow: $boxShadowButtonSliderHover;
     right: -100%;
     width: 42rem;
+    margin-top: 1rem;
     min-height: 22rem;
     max-height: 44rem;
-}
 
-.favoritos{
-
-    @include fontLigth($fontClara);
+    &::before{
+        @extend %topMenuDrop;
+        border-bottom: 14px solid $colorBlanco;
+        left: 33.2rem;
+    }
     
     // Estilos para el boton de eliminar.
     &__delete{

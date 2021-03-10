@@ -1,14 +1,16 @@
 import getDataFromApi from '../../modules/fetch'
-import {useState, useEffect, useContext} from 'react';
-import {Link} from 'react-router-dom'
+import { useEffect, useContext} from 'react';
+import {Link, useHistory} from 'react-router-dom'
 import Usuario from '../../components/header/cuenta';
 import { UserLogin } from '../../context/UserLoginContext';
+import { conecctionDb } from '../../utilitis/fireBase';
 
 const apiCategorias = 'https://api.mercadolibre.com/sites/MLA/categories'
 
-const NavBar = ({imgLocation, imgCarrito, carrito, setCarrito, categorias}) => {
+const NavBar = ({imgLocation, imgCarrito, fav, setFav, categorias}) => {
 
-    const {user, sessionOut} = useContext(UserLogin)
+    const {user, sessionOut, updateFavUser, deleteFavUser, addCarritoFavUser} = useContext(UserLogin)
+    const history = useHistory()
 
     useEffect(() => { 
         getDataFromApi(apiCategorias)
@@ -16,10 +18,6 @@ const NavBar = ({imgLocation, imgCarrito, carrito, setCarrito, categorias}) => {
             .then(data => console.log(data.splice(0, 15)))
     }, [])
 
-    const deleteFav = (id) => {
-        let newCarrito = carrito.filter( producto => producto.id !== id)
-        setCarrito(newCarrito);
-    }
 
     return ( 
         <div className = 'header__navBar flex-1 flex-grow'>
@@ -60,10 +58,13 @@ const NavBar = ({imgLocation, imgCarrito, carrito, setCarrito, categorias}) => {
 
             <Usuario 
                 imgCarrito = {imgCarrito}
-                carrito = {carrito}
-                deleteFav = {deleteFav}
+                fav = {fav}
+                updateFavUser = {updateFavUser}
                 user = {user}
                 sessionOut = {sessionOut}
+                deleteFavUser = {deleteFavUser}
+                addCarritoFavUser = {addCarritoFavUser}
+                history = {history}
             />
         </div>
      );

@@ -1,7 +1,7 @@
-import {Fragment, useEffect, useState} from 'react'
+import React, {Fragment, useEffect, useState} from 'react'
 import {Link, useLocation} from 'react-router-dom'
 
-const AsideSearch = ({searchParam, dataSearch, setFilters = null, filters = null}) => {
+const AsideSearch = React.memo(({searchParam, dataSearch, setFilters = null, filters = null, setLastSaw, lastSaw}) => {
 
     const pathProduct = dataSearch => dataSearch[0]?.filters.filter(categoria => categoria.id === 'category');
 
@@ -208,6 +208,6 @@ const AsideSearch = ({searchParam, dataSearch, setFilters = null, filters = null
             : null }
         </Fragment>
     )
-}
+})
 
 export default AsideSearch;

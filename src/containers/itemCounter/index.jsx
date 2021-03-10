@@ -1,4 +1,5 @@
 import {useState, useEffect, useContext} from 'react';
+import {useHistory} from 'react-router-dom';
 import {Button, Form} from 'react-bootstrap';
 import FormField from './formField'
 import { GlobalContext } from '../../context/GlobalContext';
@@ -22,14 +23,13 @@ const stylesClickOnInput = (e) => {
 }
 
 const changeInitialValue = (initial) => (initial > 0) ? document.querySelector('#buttonCantidadUnidades').textContent = `${initial} unidades` : null;
+ 
 
-
-const ItemCounter = ({stock, initial, producto}) => {
+const ItemCounter = ({stock, initial, producto, user, handleExistUser, cantidaInput, setCantidadInput, history}) => {
     // State de cantidad de producto
     const [cantidad, setCantidad] = useState(0);
 
-    // State perteneciente al input y su estado
-    const [cantidaInput, setCantidadInput] = useState(1);
+    // const history = useHistory()
 
     const {Producto, setCarrito, carrito} = useContext(GlobalContext);
 
@@ -121,40 +121,13 @@ const ItemCounter = ({stock, initial, producto}) => {
         label.classList.remove('masProductosTitleDisappear');        
     }
 
-    const addCarrito = () => {
-        console.log(carrito)
-        if(!carrito.find(product => product === null) &&  !carrito.find(product => product.id === producto.id)){
-            const product = new Producto(
-                producto.id, 
-                producto.title, 
-                (producto.price * cantidaInput),
-                producto.thumbnail, 
-                cantidaInput, 
-                (producto.original_price) ? (100 - (producto.price / producto.original_price)* 100).toFixed(0) : null, 
-                (producto.original_price) ? producto.original_price : null,
-                stock,
-                producto.price,
-                producto.shipping.free_shipping,
-                producto.shipping.logistic_type
-            )
-            setCarrito([...carrito, product])
-            localStorage.setItem('carrito', JSON.stringify([...carrito, product]));
-        }
-        else{
-            carrito.forEach( product => {
-                if(product.id === producto.id) {
-                    product.quantity += cantidaInput
-                    product.price += producto.price * cantidaInput
-                }
-            })
-            localStorage.setItem('carrito', JSON.stringify([...carrito]));
-        }
-    }
+    
 
    
 
     return (
-         <div id = 'buttonContainer' className = 'rounded-2xl shadow-2xl mt-8'>
+         <div id = 'buttonContainer' className = 'rounded-2xl mt-8'>
+             {stock ? console.log(stock) : null}
              <Form 
                 className = 'buttonContainer__form flex flex-col items-start justify-between'
                 onSubmit = {submitForm}
@@ -167,7 +140,7 @@ const ItemCounter = ({stock, initial, producto}) => {
                     <span>Cantidad: </span>
                     <span id = 'buttonCantidadUnidades' className = 'font-semibold'>{(cantidad === 1) ? `${cantidad} unidad` : `${cantidad} unidades`}</span>
                     <span>^</span>
-                    <span className = 'buttonCantidadUnidades__spanDisponibles'>{`(${stock} disponibles)`}</span>
+                    <span className = 'buttonCantidadUnidades__spanDisponibles'>{`(${stock ? stock.stock : '...'} disponibles)`}</span>
 
                     <ul id = 'choseeCantidad'
                         className = 'buttonContainer__ul-cantidad ulScaleInitial'
@@ -225,7 +198,7 @@ const ItemCounter = ({stock, initial, producto}) => {
 
                     <Button 
                         className ='buttonContainer__form-buttons buttonContainer__form-buttons--buttonAgregar'
-                        onClick = {() => addCarrito()}
+                        onClick = {() => handleExistUser(user, producto, history)}
                     >
                         <span>Agregar al carrito</span>
                     </Button>

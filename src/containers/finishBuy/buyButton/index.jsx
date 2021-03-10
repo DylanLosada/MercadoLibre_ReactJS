@@ -1,11 +1,16 @@
-import {Button} from 'react-bootstrap'
+import { Button } from "react-bootstrap";
 
-const BuyButton = ({shipping}) => {
-    return (
-        <div className = 'finishBuy__buttonContainer'>
-            <Button className = 'finishBuy__buttonContainer-button'>Continuar</Button>
-        </div>
-    )
-}
+const BuyButton = ({ handleUserAdress }) => {
+  return (
+    <div className="finishBuy__buttonContainer">
+      <Button
+        className="finishBuy__buttonContainer-button"
+        onClick={() => handleUserAdress()}
+      >
+        Continuar
+      </Button>
+    </div>
+  );
+};
 
-export default BuyButton
+export default BuyButton;

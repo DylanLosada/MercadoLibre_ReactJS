@@ -1,9 +1,14 @@
-import {Form, Modal} from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
+import ModalMediosPago from '../modalMediosPago'
 import ItemCounter from '../../../containers/itemCounter'
+import SellerReputation from '../sellerReputation'
 
 
-const FormCompra = ({producto, infoProduct}) => {
-    console.log(producto)
+const FormCompra = ({producto, infoProduct, user, handleExistUser, cantidaInput, setCantidadInput, stock, history, seller}) => {
+
+    
+    console.log(stock)
+    
     return (
         <Form className = 'producto__formCompra col-xl-3'>
             <Form.Group className = 'producto__formCompra-title'>
@@ -16,9 +21,7 @@ const FormCompra = ({producto, infoProduct}) => {
                 <h1 className = 'producto__formCompra-title-name'>{producto.title}</h1>
 
                 <div className = 'producto__formCompra-title-stars'>
-                    <span>
-                        <svg class="ui-pdp-icon ui-pdp-icon--star-full" width="10" height="10" viewBox="0 0 10 10"><path fill="#3483FA" fill-rule="evenodd" d="M5.056 8L1.931 9.648l.597-3.49L0 3.684l3.494-.509L5.056 0l1.562 3.176 3.494.51-2.528 2.471.597 3.491z"></path></svg>
-                    </span>
+                    
                     {/* <span>{producto.opinion}</span> */}
                 </div>
             </Form.Group>
@@ -29,14 +32,13 @@ const FormCompra = ({producto, infoProduct}) => {
                     <span>{producto.price}</span>
                 </div>
 
-                {(infoProduct && infoProduct.installments.rate === 0) ?  <div className = 'producto__formCompra-price-amount'>
+                {(infoProduct.length > 0) ?  <div className = 'producto__formCompra-price-amount'>
                     <p className = 'producto__formCompra-price-amount-subPrice'>
                         <span className = 'producto__formCompra-price-amount-subPrice-amount'>en <span>{`${infoProduct.installments.quantity}x $ ${infoProduct.installments.amount} sin interés`}</span></span>
-                        <span className = 'producto__formCompra-price-amount-subPrice-mediosPago'>ver medios de pago</span>
                     </p>
                 </div> : null}
                 <div>
-                    <Modal></Modal>
+                    <ModalMediosPago />
                 </div>
             </Form.Group>
 
@@ -59,12 +61,23 @@ const FormCompra = ({producto, infoProduct}) => {
                 
                 </Form.Group> 
             : null}
+
+            <Form.Group>
+                <SellerReputation 
+                    seller = {seller}
+                />
+            </Form.Group>
         
             <Form.Group>
                 <ItemCounter 
-                    stock = {producto.initial_quantity - producto.sold_quantity}
+                    stock = {stock}
                     initial = {1}
                     producto = {producto}
+                    user = {user}
+                    handleExistUser = {handleExistUser}
+                    cantidaInput = {cantidaInput}
+                    setCantidadInput = {setCantidadInput}
+                    history = {history}
                 />
             </Form.Group>
         </Form>

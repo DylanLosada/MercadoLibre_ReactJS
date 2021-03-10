@@ -10,6 +10,8 @@ import Envios from '../components/header/envios';
 import Searcher from '../components/header/searcher';
 import HeaderSignUp from '../components/header/headerSignUp'
 import { UserLogin } from '../context/UserLoginContext';
+import { useContext } from 'react';
+import { GlobalContext } from '../context/GlobalContext';
 
 const imgLocation = './assets/iconos/ubicacion.svg';
 const imgLupa = './assets/iconos/lupa.svg';
@@ -17,12 +19,14 @@ const imgCarrito = './assets/iconos/carrito.svg';
 
 const apiMlCategorias = 'https://api.mercadolibre.com/sites/MLA/categories?limit=10'
 
-const Header = ({setCarrito, carrito, setItemSearch}) => {
+const Header = ({setItemSearch}) => {
 
     // Uso el state para generar categorias y subCategorias.
     const [categorias, setCategorias] = useState([]);
 
     const location = useLocation().pathname;
+
+    const {setFav, fav} = useContext(UserLogin)
 
     useEffect(() => {
        // Categorías
@@ -47,8 +51,8 @@ const Header = ({setCarrito, carrito, setItemSearch}) => {
                         <NavBar 
                             imgLocation = {imgLocation}
                             imgCarrito = {imgCarrito}
-                            carrito = {carrito}
-                            setCarrito = {setCarrito}
+                            fav = {fav}
+                            setFav = {setFav}
                             categorias = {categorias}
                         /> 
                     </div> 

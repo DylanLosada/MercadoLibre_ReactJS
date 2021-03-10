@@ -10,15 +10,15 @@ import Carrito from './components/carrito';
 import FinishBuy from './containers/finishBuy';
 import SignIn from './containers/signIn'
 import SignUp from './containers/signUp'
+import FormInfoBuyer from './containers/formInfoBuyer'
+import MercadoPago from './containers/mercadoPago'
 import './styles/App.scss';
 
 import {GlobalExportContext} from './context/GlobalContext';
 import {UserLoginExport} from './context/UserLoginContext'
+import UserExporSearchData from './context/UserSearchData'
 
 function App() {
-
-  // state para el carriro.
-  const [carrito, setCarrito] = useState([])
 
   // State para el cambio de ruta por params
   const [searchUrl, setSearchUrl] = useState('');
@@ -38,50 +38,54 @@ function App() {
     <>
       <GlobalExportContext>
         <UserLoginExport>
-          <BrowserRouter>
-              <Header 
-                setCarrito = {setCarrito}
-                carrito = {carrito}
-              />
-              <Switch>
+          <UserExporSearchData>
+            <BrowserRouter>
+                <Header />
+                <Switch>
 
-                <Route exact path = '/'>
-                  <Main 
-                    setCarrito = {setCarrito}
-                    carrito = {carrito}
-                  />
-                </Route>
+                  <Route exact path = '/'>
+                    <Main />
+                  </Route>
 
-                <Route exact path = {`/search/:searchParam/:filter?/:filter1?/:filter2?/:filter3?/:filter4?/:filter5?`}>
-                  <Search />
-                </Route>
+                  <Route exact path = {`/search/:searchParam/:filter?/:filter1?/:filter2?/:filter3?/:filter4?/:filter5?`}>
+                    <Search />
+                  </Route>
 
-                <Route exact path = '/search-categorie/:categorie'>
-                  <SearchCategorie />
-                </Route>
+                  <Route exact path = '/search-categorie/:categorie'>
+                    <SearchCategorie />
+                  </Route>
 
-                <Route exact path = {`/producto/:idProducto` }>
-                  <Producto />
-                </Route>
-              
-                <Route exact path = '/carrito'>
-                  <Carrito />
-                </Route>
+                  <Route exact path = {`/producto/:idProducto` }>
+                    <Producto />
+                  </Route>
+                
+                  <Route exact path = '/carrito'>
+                    <Carrito />
+                  </Route>
 
-                <Route exact path = '/finish-buy'>
-                  <FinishBuy />
-                </Route>
+                  <Route exact path = '/finish-buy'>
+                    <FinishBuy />
+                  </Route>
 
-                <Route exact path = '/sign-in'>
-                  <SignIn />
-                </Route>
+                  <Route exact path = '/sign-in'>
+                    <SignIn />
+                  </Route>
 
-                <Route exact path = '/sign-up'>
-                  <SignUp />
-                </Route>
+                  <Route exact path = '/sign-up'>
+                    <SignUp />
+                  </Route>
 
-              </Switch>
-          </BrowserRouter>
+                  <Route exact path = '/adress-config'>
+                    <FormInfoBuyer />
+                  </Route>
+
+                  <Route exact path = '/mercado-pago'>
+                    <MercadoPago />
+                  </Route>
+
+                </Switch>
+            </BrowserRouter>
+          </UserExporSearchData>
         </UserLoginExport>
       </GlobalExportContext>
     </>

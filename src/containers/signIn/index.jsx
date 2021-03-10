@@ -22,16 +22,12 @@ const SignIn = () => {
             setErrorMail, errorDni, setErrorDni, user} = useContext(UserLogin);
 
     const searchNumberInAString = (value) => {
-        const arrayString = value.trim().split('');
-        let bool = true;
-
         for(let i = 0; i <= 9; i++){
-            if (arrayString.find(index => index === String(i))) {
-                bool = false
-                break;
+            if (value.includes(i.toString())) {
+                return false
             } 
         }
-        return bool;
+        return true;
     }
 
     const getUsersToCampareFields = async (userDni, userMail) => {

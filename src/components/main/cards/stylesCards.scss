@@ -18,6 +18,11 @@
 .sliderOfertas__slider-cards{
     width: 22.4rem;
     height: 100%;
+    cursor: pointer;
+
+    &:hover .sliderOfertas__slider-cards-body-addCarrito{
+        transform: scale(1);
+    }
 }
 
 .sliderOfertas__slider-cards-like{
@@ -97,8 +102,10 @@
 }
 
 .sliderOfertas__slider-cards-body-name{
+    display: block;
     text-overflow: clip;
-    word-wrap: break-word;
+    word-break: break-all;
+    // white-space: normal;
 }
 
 .sliderOfertas__slider-cards-body-shipping{
@@ -120,6 +127,17 @@
     }
 }
 
+.sliderOfertas__slider-cards-body-addCarrito{
+    @include fontLigth($fontClara);
+    transform: scale(0);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #3483fa;
+    display: block;
+    font-weight: 400;
+    text-align: center;
+}
+
 .linkCard:hover .sliderOfertas__slider-cards-body-name,
 .linkCard:hover .sliderOfertas__slider-cards-body-priceBefore,
 .linkCard:hover .sliderOfertas__slider-cards-like{
@@ -132,4 +150,35 @@
     &-heart{
         fill: #1259c3;
     }
+}
+
+.noSaw{
+    @include displayFlex(row, center, center);
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+// Estilos por si se muestra en el detalle del productos
+.sliderOfertas__slider--detailProduct{
+    height: 28rem;
+
+    &:hover{
+        min-height: 28rem;
+    }
+}
+
+.sliderOfertas__slider-cards-body--detailProduct{
+    padding: 10px 11px 11px;
+    padding-bottom: 0%;
+}
+
+.sliderOfertas__slider-cards-body-priceAfter--detailProduct{
+    font-size: 1.9rem;
+}
+
+.sliderOfertas__slider-cards-body-name--detailProduct{
+    font-size: 1.2rem;
+    transform: scale(1);
 }

@@ -24,3 +24,10 @@ const app = firebase.initializeApp({
     const elements = db.collection('usuarios')
     return await elements.get()
   }
+
+  export const deleteFieldFromDb = async (id) => {
+    const db = getFireStore().collection('usuarios').doc(id)
+    db.update({
+      fav: firebase.firestore.FieldValue.delete()
+    });
+  }

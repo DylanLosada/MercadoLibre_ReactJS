@@ -1,6 +1,8 @@
 @import '../components/main/mediosPago/stylesMediosPago.scss'; // Estilos banner con medios de pago.
 @import '../components/main/cards/stylesCards.scss'; // Slider de ofertas
 @import '../containers/itemCounter/style.scss'; // Botón de sumar productos
+@import '../components/main/modalMediosPago/stylesModalMediosPago.scss'; // Modal medios pagos
+@import '../components/main/sellerReputation/stylesSellerReputation.scss'; // Seller reputation
 
 #slider{
     min-height: auto;

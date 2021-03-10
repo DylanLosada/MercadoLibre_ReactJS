@@ -1,5 +1,6 @@
 .producto__info{
     flex-grow: 1;
+    padding-left: 5rem;
     &-container{
         position: relative;
         &-imgs{
@@ -11,8 +12,12 @@
 
 .mainSlider{
     margin: 0%;
+    padding-top: 4rem;
+    margin-bottom: 4rem;
     width: calc(100% - 4.4rem);
     order: 1;
+    min-height: 54rem;
+    max-height: 54rem;
 
     &__slide{
         display: inherit;
@@ -29,7 +34,7 @@
 .thumbsSlider{
     position: absolute;
     top: 0%;
-    left: 0%;
+    left: -4%;
     min-height: auto;
 
     ul{
@@ -54,4 +59,38 @@
             margin-top: 0px;
         }
     }
+}
+
+.producto__imgsContainer-moreProducts{
+    @include fontLigth($fontRegular);
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,.1);
+
+    &-title{
+        color: rgba(0,0,0,.8);
+        font-size: 2.4rem;
+        font-weight: 400;
+        padding-bottom: 3.2rem;
+    }
+
+    &-tableContainer{
+        width: 100%;
+
+        &-table{
+            @include displayFlex(row, center, space-between);
+            width: 80%;
+
+            &-dataContainer{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+}
+
+.th,
+.td{
+    padding: 15px 24px 15px 16px !important;
 }

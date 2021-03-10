@@ -11,7 +11,6 @@ const SignUp = () => {
     const {register, handleSubmit, watch, errors } = useForm();
 
     const [errorSignUp, setErrorSignUp] = useState(false)
-    const [userData, setUserData] = useState([])
 
     const {user, setUser, spinnerLoader, setSpinnerLoader} = useContext(UserLogin)
 
@@ -20,14 +19,15 @@ const SignUp = () => {
             .then((results) => {
 
                 setSpinnerLoader(true)
-                const arrayUsers = results.docs.map(doc => doc.data())
+                const arrayUsers = results.docs.map(doc => {
+                    return Object.assign(doc.data(), {id: doc.id}) 
+                })
                 const userLogIn = arrayUsers.find(pass => (pass.password === userPass && pass.email === userMail.trim()))
-                console.log(arrayUsers)
-                
+                console.log(userLogIn)
                 if(arrayUsers.length > 0 && userLogIn){
-                    setUser([{id: userLogIn.dni , name:  userLogIn.name , surname:  userLogIn.surname}])
+                    setUser([userLogIn])
                     errorSignUp && setErrorSignUp(false)
-                    return localStorage.setItem('user', JSON.stringify(user))
+                    return localStorage.setItem('user', JSON.stringify(userLogIn))
                 }else{
                     return setErrorSignUp(true);
                 }
