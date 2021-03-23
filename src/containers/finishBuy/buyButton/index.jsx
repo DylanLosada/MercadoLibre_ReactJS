@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, Link } from "react-bootstrap";
 
 const BuyButton = ({ handleUserAdress }) => {
   return (

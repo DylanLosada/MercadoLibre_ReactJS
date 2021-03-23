@@ -1,0 +1,10 @@
+.spinnerLoader{
+    @include displayFlex(row, center, center);
+    width: 100%;
+
+    &__spinner{
+        width: 10rem;
+        height: 10rem;
+        color:  $colorAzulBotones;
+    }
+}

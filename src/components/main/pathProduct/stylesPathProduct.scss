@@ -1,0 +1,33 @@
+.pathProduct{
+    @include displayFlex(row, center, flex-start);
+    width: 80%;
+    margin: 0% auto;
+    margin-bottom: 2rem;
+
+    &__containerLinks{
+        @include displayFlex(row, center, space-between);
+        min-width: 3%;
+        margin-right: 0.5rem;
+
+        &-concat{
+            margin-right: 0.5rem;
+            font-size: 1.6rem;
+        }
+
+        &-link{
+            @include fontLigth($fontClara, 1.6rem);
+            text-decoration: none;
+            color: $colorAzulBotones;
+            margin-right: 1rem;
+
+            &:hover{
+                text-decoration: none;
+                color: $colorAzulBotones;
+            }
+        }
+
+        &:nth-last-child(){
+            margin-right: 0%;
+        }
+    }
+}

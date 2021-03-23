@@ -1,0 +1,52 @@
+.oficialStore{
+    width: 50%;
+
+    &__formContainer{
+    
+        &-inputContainer{
+            @include displayFlex(row, center, flex-start);
+            border-bottom: 1px solid rgba(0,0,0,.25);
+            padding: 8px 0 4px;
+
+            &:hover &-hover{
+                transform: scale(1);
+                background-color: $colorAzulBotones;
+            }
+
+            &-input{
+                @include fontLigth($fontClara, 2rem);
+                font-size: 24px;
+                padding-bottom: 6px;
+                background-color: transparent;
+                border: none;
+
+                &:focus{
+                    border: none;
+                    background-color: transparent;
+                    box-shadow: none;
+                }
+            }
+
+            &-lupa{
+                font-size: 2rem;
+                margin-right: 1.5rem;
+            }
+
+            &-hover{
+                height: 2px;
+                width: 100%;
+                transform: scale(0, 1);
+                bottom: 0%;
+                transform-origin: right bottom;
+                transition: transform 0.3s;
+            }
+        }   
+    }
+}
+
+.blueBorder{
+    height: 2px;
+    width: 100%;
+    transform: scale(1);
+    background-color: $colorAzulBotones;
+}

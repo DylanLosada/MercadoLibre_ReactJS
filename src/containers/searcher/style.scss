@@ -1,0 +1,81 @@
+// Buscador de productos
+.header__searcher{
+    @include displayFlex(row);
+    position: relative;
+    width: 50%;
+
+
+    input{
+        flex-basis: 85%;
+        flex-grow: 1;
+        border: none;
+        padding: 0.7rem 1.5rem 0.9rem 1.5rem;
+        font-size: 1.6rem;
+        font-weight: normal;
+        letter-spacing: normal;
+    }
+
+    a{
+        @include displayFlex(row, center, center);
+        flex-basis: 6%;
+        background-color: $colorBlanco;
+        padding: 0rem 1rem;
+        // font-weight: normal;
+        font-size: 1.6rem;
+        cursor: pointer;
+        padding-left: 0%
+    }
+
+    &-predict{
+        @include displayFlex(column, flex-start, flex-start);
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        z-index: 50;
+        width: 93%;
+        min-height: 1rem;
+        padding: 0.8rem;
+        background-color: $colorBlanco;
+        border-top: 1px solid $coloBordesGris;
+        cursor: pointer;
+
+        &-link{
+            width: 100%;
+            &-name{
+                @include displayFlex(row, center, flex-start);
+                @include fontLigth($fontClara);
+                width: 100%;
+                margin: 0%;
+                padding: 0.7rem 1.5rem 0.9rem 1.5rem;
+                font-size: 1.6rem;
+                font-weight: normal;
+                letter-spacing: normal;
+            }
+
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.fa-clock{
+    display: block;
+    font-size: 1.6rem;
+    margin-right: 1.5rem;
+}
+
+.header__searcher-lupaButton{
+    @include displayFlex(row, center, center);
+    width: 90%;
+    height: 54%;
+    border-left: 1px solid rgba(204, 204, 204, 0.63);
+    padding: 0.3rem;
+    padding-left: 3rem;
+
+    img{
+        position: absolute;
+        height: 1.8rem;
+        right: 2.3%;
+    }
+}

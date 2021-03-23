@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const CarritoCounter = ({ totalPrice }) => (
+const CarritoCounter = ({ totalPrice, priceProduct }) => (
   <div className="carritoCounter">
     <div className="carritoCounter__container">
       <div className="carritoCounter__container-shipping">
@@ -10,7 +10,7 @@ const CarritoCounter = ({ totalPrice }) => (
 
       <div className="carritoCounter__container-cost">
         <p>Total con envío</p>
-        <span>$ {totalPrice}</span>
+        <span>$ {priceProduct(totalPrice)}</span>
       </div>
     </div>
 

@@ -1,21 +1,19 @@
-import Search from '../search';
+import Search from "../search";
+import { useContext, useEffect } from "react";
+import { UserSearchData } from "../../context/UserSearchData";
+import { useParams } from "react-router";
 
-// const probando = (idCategories) => {
-//     let arraySubCategories = [];
-//     idCategories.forEach(id => {
-//         const apiPrueba = `https://api.mercadolibre.com/categories/${id}`;
-//             getDataFromApi(apiPrueba)
-//             .then(data => data.json())
-//             .then(data => arraySubCategories.push(data));
-//     })
-//     console.log(arraySubCategories)
-// }
+const SearchCategorie = () => {
+  const { category, setSearchCategory, searchCategory } = useContext(
+    UserSearchData
+  );
+  const { categorie } = useParams();
 
-const SearchCategorie = () => (
-        <Search 
-            categories = {true}
-        />
-    )
+  useEffect(() => {
+    setSearchCategory(categorie);
+  }, []);
 
+  return <Search searchCategory={searchCategory} />;
+};
 
 export default SearchCategorie;

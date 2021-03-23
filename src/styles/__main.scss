@@ -3,6 +3,8 @@
 @import '../containers/itemCounter/style.scss'; // Botón de sumar productos
 @import '../components/main/modalMediosPago/stylesModalMediosPago.scss'; // Modal medios pagos
 @import '../components/main/sellerReputation/stylesSellerReputation.scss'; // Seller reputation
+@import '../components/main/cardsMisCompras/stylesCardsMisCompras.scss'; // Estilos para los paquetes de las compras
+@import '../components/main/pathProduct/stylesPathProduct.scss'; // Estilos para las bread crums de los productos
 
 #slider{
     min-height: auto;

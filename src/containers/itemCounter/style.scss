@@ -106,12 +106,23 @@
 
 .buttonContainer__ul-cantidad-masCantidad-buttonSubmit{
     border-radius: 50%;
-    font-size: 0.9rem;
+    height: 2rem;
+    width: 2rem;
+    padding: 0.5rem;
     color: $colorBlanco;
     background-color: $colorAzulBotones;
-    top: 56%;
-    right: 0%;
+    top: 14%;
+    right: -22%;
     border: none;
+    display: flex;
+    align-items: center;
+
+    i{
+        display: block;
+        width: 100%;
+        font-size: 2rem;
+        color: $colorBlanco;
+    }
 }
 
 .buttonContainer__ul-cantidad-masCantidad-buttonSubmit:hover{
@@ -143,7 +154,7 @@
 .buttonContainer__form-buttons--buttonAgregar{
     background-color: rgba(65,137,230,.15);
     margin-top: 2rem;
-
+    
     span{
         color: $colorAzulBotones;
     }

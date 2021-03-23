@@ -1,0 +1,42 @@
+.contaierFooter{
+    background-color: black;
+    margin-top: 3rem;
+    position: absolute;
+    bottom: 0%;
+}
+
+.footer{
+    @include displayFlex(row, center, space-between);
+    margin: 0% auto;
+    width: 85%;
+    background-color: black;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    &__linkContainer{
+        display: inherit;
+        justify-content: flex-start;
+
+       flex-basis: 30%; 
+        
+       &-link{
+            text-decoration: none;
+            color: $colorBlanco;
+            font-size: 3rem;
+
+            &:first-child{
+                margin-right: 2rem;
+            }
+
+            &:hover{
+                color: $colorBlanco; 
+                text-decoration: none;
+            }
+       }
+    }
+
+    &__copy{
+        @include fontLigth($fontClara, 1.6rem);
+        color: $colorBlanco;
+    }
+}

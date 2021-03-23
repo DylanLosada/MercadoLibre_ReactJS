@@ -1,0 +1,12 @@
+.historial{
+    margin-top: 4.8rem;
+    margin-bottom: 25px;
+    padding-left: 8px;
+    padding-right: 8px;
+    
+    &__title{
+        @include fontLigth($fontClara, 2.6rem);
+        color: rgba(0,0,0,.8);
+        font-weight: 600;
+    }
+}

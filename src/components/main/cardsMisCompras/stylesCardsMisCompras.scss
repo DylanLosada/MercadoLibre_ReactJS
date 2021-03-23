@@ -1,0 +1,49 @@
+.cardMisCompras{
+
+    &Info{
+
+        &__infoContainer{
+            align-items: center;
+
+            &-title{
+                font-size: 3rem;
+            }
+        }
+    }
+
+
+    &Product{
+        display: inline-flex;
+        padding: 1rem;
+        padding-bottom: 0.5rem;
+        border: none;
+
+        &__infoContainer{
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+
+            &-title{
+                font-size: 3rem;
+            }
+        }
+
+        &__link{
+
+            &-body{
+                padding: 0%;
+
+                &-imgContainer{
+                    width: 10rem;
+                    height: 10rem;
+                    border-radius: 3%;
+                    margin: 0%;
+
+                    &-img{
+                        margin: 0%;
+                    }
+                }
+            }
+        }
+    }
+}

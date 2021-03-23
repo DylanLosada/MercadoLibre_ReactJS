@@ -4,6 +4,7 @@ import { GlobalContext } from "../../context/GlobalContext";
 import CarritoCard from "./carritoCard";
 import CarritoCounter from "./carritoCounter";
 import plusCarritoPrices from "../../modules/plusCarritoPrices";
+import { priceProduct } from "../../modules/priceProduct";
 
 const Carrito = () => {
   const {
@@ -15,8 +16,6 @@ const Carrito = () => {
   } = useContext(GlobalContext);
 
   const [totalPrice, setTotalPrice] = useState();
-
-  const history = useLocation();
 
   useEffect(() => {
     setTotalPrice(plusCarritoPrices(carrito));
@@ -44,12 +43,16 @@ const Carrito = () => {
                     addQuantity={addQuantity}
                     setQuantity={setQuantity}
                     deleteProduct={deleteProduct}
+                    priceProduct={priceProduct}
                   />
                 </li>
               ))}
             </ul>
 
-            <CarritoCounter totalPrice={totalPrice} />
+            <CarritoCounter
+              totalPrice={totalPrice}
+              priceProduct={priceProduct}
+            />
           </div>
         ) : (
           <div className="carritoContainer__empty">

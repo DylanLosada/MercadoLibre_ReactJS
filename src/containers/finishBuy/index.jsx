@@ -1,5 +1,3 @@
-/* eslint-disable no-duplicate-case */
-/* eslint-disable default-case */
 import SummaryBuy from "./summaryBuy";
 import BuyButton from "./buyButton";
 import ContainerPackageProduct from "./containerPackageProduct";
@@ -12,17 +10,19 @@ import plusCarritoPrices from "../../modules/plusCarritoPrices";
 import getDateShipping from "../../modules/getDateShipping";
 import { UserLogin } from "../../context/UserLoginContext";
 import { Alert } from "react-bootstrap";
+import { MisComprasContext } from "../../context/MisComprasContext";
 
 const FinishBuy = () => {
   const { carrito } = useContext(GlobalContext);
   const { user, userAdress } = useContext(UserLogin);
+  const { setDeleteCarrito } = useContext(MisComprasContext);
 
   const [finishBuy, setFinishBuy] = useState([]);
   const [totalPrice, setTotalPrice] = useState([]);
   const [noAdress, setNoAdress] = useState(false);
 
   const history = useHistory();
-  console.log(totalPrice);
+  console.log(carrito);
 
   useEffect(() => {
     carrito.length > 0 ? setFinishBuy([...carrito]) : history.push("/");
@@ -43,19 +43,24 @@ const FinishBuy = () => {
           "Bearer TEST-8996856766715937-020519-760b56814269813cb5d24795ad20153d-398590246",
       },
       body: JSON.stringify({
-        items: [
-          {
-            title: `Dummy`,
-            description: "prueba vo",
-            quantity: 2,
+        items: carrito.map((prod) => {
+          return {
+            title: prod.name,
+            auto_return: "http://localhost:3000/mis-compras",
+            quantity: prod.quantity,
             currency_id: "ARS",
-            unit_price: 300,
-          },
-        ],
+            unit_price: prod.price,
+          };
+        }),
       }),
     })
       .then((results) => results.json())
-      .then((results) => (window.location.href = results.init_point));
+      .then((results) => {
+        window.open(results.init_point, "_blank").focus();
+        console.log(results);
+      })
+      .then(() => setDeleteCarrito(finishBuy))
+      .then(() => history.push("/mis-compras"));
 
   return (
     <section className="section">
